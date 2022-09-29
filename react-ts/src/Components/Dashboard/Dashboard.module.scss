@@ -8,6 +8,7 @@
   grid-template-rows: 10% 90%;
   margin: 0 auto;
   border: 1px solid #000;
-  padding: 3.2rem 4.8rem 4.8rem 3.2rem;
+  padding: calc(vars.$unit-l * 4) calc(vars.$unit-l * 4) calc(vars.$unit-l * 4)
+    calc(vars.$unit-m * 4) ;
   background-color: vars.$component-back-color;
 }

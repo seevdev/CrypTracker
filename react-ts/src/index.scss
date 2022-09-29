@@ -7,6 +7,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+// FIX LATER
+*:focus{
+  outline: none;
+}
 
 html {
   font-size: 62.5%;
@@ -16,6 +20,6 @@ body {
   font-family: sans-serif;
   font-size: 1.6rem;
   line-height: 1;
-  color: #fff;
+  color: vars.$baseTextColor;
   background-color: vars.$base-color;
 }

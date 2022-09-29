@@ -1,9 +1,10 @@
 import React from 'react';
+import Input from '../../UI/Input';
 
 const SearchBar: React.FC = (props) => {
   return (
     <div>
-      <input />
+      <Input />
       <span>Icon</span>
     </div>
   );
