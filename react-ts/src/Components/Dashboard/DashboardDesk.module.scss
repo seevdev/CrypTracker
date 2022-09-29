@@ -1,0 +1,8 @@
+@use '/src/Utilities/Variables.module' as vars;
+
+.dashboard-desk {
+  grid-column: 2;
+  display: grid;
+  border: 1px solid #000;
+  background-color: vars.$base-color;
+}

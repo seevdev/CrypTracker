@@ -1,9 +1,13 @@
 import React from 'react';
 import classes from './App.module.scss';
+import Dashboard from './Components/Dashboard/Dashboard';
 
 function App() {
-  console.log('hello');
-  return <div className={classes.app}>Hello</div>;
+  return (
+    <div className={classes.app}>
+      <Dashboard />
+    </div>
+  );
 }
 
 export default App;

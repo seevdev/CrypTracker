@@ -1,0 +1,5 @@
+@use '/src/Utilities/Variables.module' as vars;
+
+.menu {
+  grid-row: 1 / span 2;
+}
