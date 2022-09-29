@@ -1,22 +1,26 @@
 // COLORS
-$baseTextColor:#fff;
+$baseTextColor: #fff;
 $base-color: #313039;
 $component-back-color: #0c0c10;
+$ditem-color:#222128;
 
 // BORDER-RADIUS
 
 $bradius-s: 5px;
 $bradius-m: 11px;
-$bradius-l: 23px;
+$bradius-l: 35px;
 
 // UNITS
 $unit-s: 0.4rem;
 $unit-m: 0.8rem;
 $unit-l: 1.2rem;
 
+// FLEX SIMPLE
+
 // COMPLEX STYLES
-@mixin flexCenter {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+
+@mixin flex-center {
+  align-items: center;
+  justify-content: center;
 }

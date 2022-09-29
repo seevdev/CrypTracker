@@ -1,9 +1,25 @@
 @use '/src/Utilities/Variables.module' as vars;
-
-.dashboard-desk {
-  grid-column: 2;
-  display: grid;
-  border: 1px solid #000;
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
   background-color: vars.$base-color;
   border-radius: vars.$bradius-l;
+  height: 85vh;
+  h2{
+    margin-top: 2rem;
+    margin-left: 2rem;
+  }
+
+  .dashboard-desk {
+    display: grid;
+    justify-items: center;
+    width: 95%  ;
+    margin: 0 auto;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    row-gap: calc(vars.$unit-m * 4);
+    grid-column: 2;
+    // padding: calc(vars.$unit-m * 4);
+  }
 }

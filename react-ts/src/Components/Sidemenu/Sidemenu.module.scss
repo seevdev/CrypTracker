@@ -1,5 +1,24 @@
 @use '/src/Utilities/Variables.module' as vars;
 
+menu{
+  display: flex;
+  flex-flow: column;
+  gap: calc(vars.$unit-l*7);
+  
+}
+ul {
+  display: flex;
+  flex-flow: column;
+  gap: calc(vars.$unit-l*4);
+  list-style-type: none;
+}
+li {
+  a {
+    text-decoration: none;
+    color: vars.$baseTextColor;
+    font-size: calc(vars.$unit-s * 4);
+  }
+}
 .menu {
   grid-row: 1 / span 2;
 }

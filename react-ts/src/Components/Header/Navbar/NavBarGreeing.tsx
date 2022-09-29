@@ -5,7 +5,7 @@ const NavBarGreeting: React.FC = (props) => {
   return (
     <div className={classes.greeting}>
       <img src={'https://i.stack.imgur.com/ILTQq.png'} />
-      <h1>Hello,Sam</h1>
+      <h2>Hello,Sam</h2>
     </div>
   );
 };

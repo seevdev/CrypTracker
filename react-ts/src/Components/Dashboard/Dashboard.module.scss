@@ -4,11 +4,12 @@
   width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template-columns: 30% 70%;
+  grid-template-columns: 15% 85%;
   grid-template-rows: 10% 90%;
   margin: 0 auto;
   border: 1px solid #000;
   padding: calc(vars.$unit-l * 4) calc(vars.$unit-l * 4) calc(vars.$unit-l * 4)
     calc(vars.$unit-m * 4) ;
   background-color: vars.$component-back-color;
+  align-items: start;
 }
