@@ -13,3 +13,10 @@ $bradius-l: 23px;
 $unit-s: 0.4rem;
 $unit-m: 0.8rem;
 $unit-l: 1.2rem;
+
+// COMPLEX STYLES
+@mixin flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

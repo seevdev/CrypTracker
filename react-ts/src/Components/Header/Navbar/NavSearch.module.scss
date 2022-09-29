@@ -1,0 +1,11 @@
+@use '/src/Utilities/Variables.module' as vars;
+
+.nav-search {
+  @include vars.flexCenter;
+  background-color: vars.$base-color;
+  border-radius: vars.$bradius-l;
+
+  input {
+    background-color: transparent;
+  }
+}

@@ -1,13 +1,14 @@
 import React from 'react';
 import Input from '../../UI/Input';
+import classes from './NavSearch.module.scss';
 
-const SearchBar: React.FC = (props) => {
+const NavSearch: React.FC = (props) => {
   return (
-    <div>
-      <Input />
+    <div className={classes['nav-search']}>
       <span>Icon</span>
+      <Input />
     </div>
   );
 };
 
-export default SearchBar;
+export default NavSearch;
