@@ -1,13 +1,11 @@
 import React from 'react';
+import { PropsChildren } from '../types-general';
+import classes from './Dashboard.module.scss';
 
-type Props = {
-  children?: React.ReactNode;
-  items: string[];
-};
 type Colors = {
   green: string;
 };
-const Dashboard: React.FC<Props & Colors> = (props) => {
+const Dashboard: React.FC<PropsChildren & Colors> = (props) => {
   return <div>{props.green}</div>;
 };
 
