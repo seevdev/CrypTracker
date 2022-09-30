@@ -1,24 +1,30 @@
 @use '/src/Utilities/Variables.module' as vars;
 
-menu{
+.menu {
   display: flex;
   flex-flow: column;
-  gap: calc(vars.$unit-l*7);
-  
+  gap: calc(vars.$unit-l * 7);
+  grid-row: 1 / span 2;
 }
 ul {
   display: flex;
   flex-flow: column;
-  gap: calc(vars.$unit-l*4);
+  gap: calc(vars.$unit-l * 4);
   list-style-type: none;
+  margin-left: calc(vars.$unit-l * 2);
 }
-li {
+li > div {
+  display: flex;
+  align-items: center;
+  gap: calc(vars.$unit-l * 2);
   a {
     text-decoration: none;
     color: vars.$baseTextColor;
     font-size: calc(vars.$unit-s * 4);
   }
 }
-.menu {
-  grid-row: 1 / span 2;
+
+.icon {
+  width: 24px;
+  height: 24px;
 }

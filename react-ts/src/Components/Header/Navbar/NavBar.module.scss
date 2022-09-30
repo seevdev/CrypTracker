@@ -20,4 +20,19 @@
     height: 30px;
     width: 30px;
   }
+  .icon{
+    width: 24px;
+    height:24px;
+    cursor: pointer;
+  }
+  .icon-back{
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: vars.$base-color;
+
+  }
 }
