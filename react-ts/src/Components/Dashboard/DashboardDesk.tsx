@@ -18,7 +18,8 @@ type Children = {
 function DashBoardDesk<T>(props: T & Children) {
   
   const [coins, setCoins] = useState<Coin[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isSearching, setIsSearching] = useState<boolean>(false);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [coinsPerPage, setCoinsPerPage] = useState<number>(9);
 
@@ -65,7 +66,7 @@ function DashBoardDesk<T>(props: T & Children) {
         <div className={classes['dashboard-arrows-cont']}>
           {IconArrowL}
           <div className={classes['dashboard-desk']}>
-            {coins.map((coin) => {
+            {currentCoins.map((coin) => {
               return (
                 <DashBoardItem
                   id={coin.id}
