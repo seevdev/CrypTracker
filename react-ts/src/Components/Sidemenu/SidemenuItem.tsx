@@ -1,5 +1,5 @@
 import React from 'react';
-import { Props } from '../types-general';
+import { Props } from '../../Utilities/types-general';
 
 const SidemenuItem = (props: any) => {
   return (

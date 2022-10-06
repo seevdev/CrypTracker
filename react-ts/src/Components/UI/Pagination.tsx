@@ -26,7 +26,10 @@ const Pagination = function <T>({
           return (
             <li>
               <a href='#'>
-                <div className={classes['pagination-circle']}></div>
+                <div
+                  data-id={num}
+                  className={classes['pagination-circle']}
+                ></div>
               </a>
             </li>
           );

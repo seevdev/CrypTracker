@@ -20,7 +20,7 @@ function DashBoardDesk<T>(props: T & Children) {
   const [coins, setCoins] = useState<Coin[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isSearching, setIsSearching] = useState<boolean>(false);
-  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [currentPage, setCurrentPage] = useState<number>(3);
   const [coinsPerPage, setCoinsPerPage] = useState<number>(9);
 
   const getCoinsHandler = useCallback(async function () {
@@ -54,7 +54,7 @@ function DashBoardDesk<T>(props: T & Children) {
     getCoinsHandler();
   }, [getCoinsHandler]);
 
-  // Gget currrent coins
+  // Get currrent coins
   const indexOfLastCoin = currentPage * coinsPerPage;
   const indexOfFirstCoin = indexOfLastCoin - coinsPerPage;
   const currentCoins = coins.slice(indexOfFirstCoin, indexOfLastCoin);
