@@ -9,14 +9,22 @@
 ul {
   display: flex;
   flex-flow: column;
-  gap: calc(vars.$unit-l * 4);
+  gap: calc(vars.$unit-l * 2.5);
   list-style-type: none;
   margin-left: calc(vars.$unit-l * 2);
 }
-li > div {
-  display: flex;
-  align-items: center;
-  gap: calc(vars.$unit-l * 2);
+li {
+  & > div {
+    display: flex;
+    align-items: center;
+    gap: calc(vars.$unit-l * 2);
+  }
+  .pointer {
+    width: 5px;
+    height: 20px;
+    background-color: green;
+  }
+
   a {
     text-decoration: none;
     color: vars.$baseTextColor;
@@ -27,4 +35,13 @@ li > div {
 .icon {
   width: 24px;
   height: 24px;
+}
+
+.icon-back {
+  display: flex;
+  @include vars.flex-center;
+  width: 48px;
+  height: 48px;
+  border-radius: 100%;
+  background-color: vars.$base-color;
 }

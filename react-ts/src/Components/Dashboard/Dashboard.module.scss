@@ -12,4 +12,5 @@
     calc(vars.$unit-m * 4) ;
   background-color: vars.$component-back-color;
   align-items: start;
+ overflow-y: hidden;
 }

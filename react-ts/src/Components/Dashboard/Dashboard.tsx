@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import Header from '../Header/Header';
 import Sidemenu from '../Sidemenu/Sidemenu';
 import classes from './Dashboard.module.scss';
 import DashBoardDesk from './DashboardDesk';
 
-const Dashboard: React.FC = (props) => {
+
+
+function Dashboard<T>(props: T) {
+  
+  
   return (
     <div className={classes.dashboard}>
       <Sidemenu />
@@ -12,6 +16,6 @@ const Dashboard: React.FC = (props) => {
       <DashBoardDesk />
     </div>
   );
-};
+}
 
 export default Dashboard;

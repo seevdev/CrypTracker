@@ -1,13 +1,22 @@
 import React from 'react';
 import classes from './DashboardItem.module.scss';
+type ItemProps = {
+  img: string;
+  price: number;
+  priceChangePercentageWeekly: number;
+  name: string;
+  id: number | string;
 
-const DashBoardItem: React.FC = (props) => {
+  children?: React.ReactNode;
+};
+function DashBoardItem(props: ItemProps) {
+  const price = `$${Math.trunc(props.price)}`;
   return (
     <div className={classes.item}>
       <div>
-        <img src={'https://i.stack.imgur.com/ILTQq.png'} />
-        <span>$300</span>
-        <span>45% this week</span>
+        <img src={props.img} />
+        <span>{price}</span>
+        <span>{`${props.priceChangePercentageWeekly}% this week`}</span>
       </div>
       <svg
         xmlns='http://www.w3.org/2000/svg'
@@ -25,6 +34,6 @@ const DashBoardItem: React.FC = (props) => {
       </svg>
     </div>
   );
-};
+}
 
 export default DashBoardItem;

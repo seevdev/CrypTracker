@@ -5,7 +5,7 @@
   justify-content: space-between;
   align-items: center;
   // height:calc(vars.$unit-l*2);
-  margin-bottom:vars.$unit-l*2 ;
+  // margin-bottom: vars.$unit-l * 2;
   .search-container {
     display: flex;
     flex-direction: row;
@@ -20,12 +20,12 @@
     height: 30px;
     width: 30px;
   }
-  .icon{
+  .icon {
     width: 24px;
-    height:24px;
+    height: 24px;
     cursor: pointer;
   }
-  .icon-back{
+  .icon-back {
     width: 48px;
     height: 48px;
     border-radius: 100%;
@@ -33,6 +33,5 @@
     justify-content: center;
     align-items: center;
     background-color: vars.$base-color;
-
   }
 }

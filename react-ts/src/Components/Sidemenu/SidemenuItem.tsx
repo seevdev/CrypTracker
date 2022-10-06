@@ -1,7 +1,7 @@
 import React from 'react';
 import { Props } from '../types-general';
 
-const SidemenuItem: React.FC = (props: any) => {
+const SidemenuItem = (props: any) => {
   return (
     <li>
       <div>

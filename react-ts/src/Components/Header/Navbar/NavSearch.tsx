@@ -2,7 +2,7 @@ import React from 'react';
 import Input from '../../UI/Input';
 import classes from './NavSearch.module.scss';
 
-const NavSearch: React.FC = (props) => {
+const NavSearch= (props:any) => {
   return (
     <div className={classes['nav-search']}>
       <svg

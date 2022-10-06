@@ -1,12 +1,16 @@
-@use '/src/Utilities/Variables.module' as vars;
+@import '/src/Utilities/Variables.module';
+
 .dashboard-container {
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
-  background-color: vars.$base-color;
-  border-radius: vars.$bradius-l;
-  height: 85vh;
-  h2{
+  background-color: $base-color;
+  border-radius: $bradius-l;
+  height: 80vh;
+  margin-top: -1.2rem;
+  padding: calc($unit-m * 3);
+
+  h2 {
     margin-top: 2rem;
     margin-left: 3.2rem;
     padding: 1.2rem;
@@ -15,12 +19,32 @@
   .dashboard-desk {
     display: grid;
     justify-items: center;
-    width: 95%  ;
-    margin: 0 auto;
-    grid-template-columns: repeat(5, 1fr);
+    width: 100%;
+
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 1fr);
-    row-gap: calc(vars.$unit-m * 4);
+    row-gap: calc($unit-m * 6);
     grid-column: 2;
-    // padding: calc(vars.$unit-m * 4);
+    // padding: calc($unit-m * 4);
+  }
+  .graph {
+    width: 300px;
+    height: 500px;
+    border: 1px solid red;
+  }
+  .container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .dashboard-arrows-cont{
+    display: flex;
+    // @include flex-center
+  }
+
+  .icon{
+    width: 24px;
+    height: 24px;
   }
 }

@@ -3,7 +3,7 @@ import classes from './NavBar.module.scss';
 import NavBarGreeting from './NavBarGreeing';
 import SearchBar from './NavSearch';
 
-const NavBar: React.FC = (props) => {
+const NavBar = (props:any) => {
   return (
     <nav className={classes['nav-bar']}>
       <NavBarGreeting />

@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './NavBarGreeting.module.scss';
 
-const NavBarGreeting: React.FC = (props) => {
+const NavBarGreeting = (props:any) => {
   return (
     <div className={classes.greeting}>
       <img src={'https://i.stack.imgur.com/ILTQq.png'} />
