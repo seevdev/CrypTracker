@@ -1,23 +1,26 @@
 import React from 'react';
 import classes from './DashboardItem.module.scss';
+
 type ItemProps = {
   img: string;
   price: number;
   priceChangePercentageWeekly: number;
   name: string;
   id: number | string;
-
   children?: React.ReactNode;
 };
+
 function DashBoardItem(props: ItemProps) {
-  const price = `$${Math.trunc(props.price)}`;
+  const price = `$${Math.trunc(props.price).toLocaleString('en-US')}`;
   return (
     <div className={classes.item}>
       <div>
         <img src={props.img} />
         <span className={classes.name}>{props.name}</span>
         <span className={classes.price}>{price}</span>
-        <span className={classes['weekly-percent']}>{`${props.priceChangePercentageWeekly}% this week`}</span>
+        <span
+          className={classes['weekly-percent']}
+        >{`${props.priceChangePercentageWeekly}% this week`}</span>
       </div>
       <svg
         xmlns='http://www.w3.org/2000/svg'

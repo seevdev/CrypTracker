@@ -14,4 +14,14 @@
     border: none;
     cursor: pointer;
   }
+  .pagination-circle-clicked {
+    background-color: red;
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    // background-color: #5a5961;
+    border: none;
+    cursor: pointer;
+  }
 }

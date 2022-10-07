@@ -19,12 +19,12 @@ type Children = {
 function DashBoardDesk<T>(props: T & Children) {
   const [coins, setCoins] = useState<Coin[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [isSearching, setIsSearching] = useState<boolean>(false);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [coinsPerPage, setCoinsPerPage] = useState<number>(9);
 
   const getCoinsHandler = useCallback(async function () {
     try {
+      setIsLoading(true);
       const response = await fetch('https://api.coingecko.com/api/v3/coins');
 
       if (!response.ok) {
@@ -44,6 +44,7 @@ function DashBoardDesk<T>(props: T & Children) {
         });
       });
       setCoins(dataRestructured);
+      setIsLoading(false);
     } catch (e) {
       console.log(e.message);
     }
@@ -76,21 +77,26 @@ function DashBoardDesk<T>(props: T & Children) {
             >
               {IconArrowL}
             </div>
-            <div className={classes['dashboard-desk']}>
-              {currentCoins.map((coin) => {
-                return (
-                  <DashBoardItem
-                    id={coin.id}
-                    name={coin.name}
-                    price={coin.price}
-                    priceChangePercentageWeekly={
-                      coin.priceChangePercentageWeekly
-                    }
-                    img={coin.image}
-                  />
-                );
-              })}
-            </div>
+            {!isLoading && (
+              <div className={classes['dashboard-desk']}>
+                {currentCoins.map((coin) => {
+                  return (
+                    <DashBoardItem
+                      id={coin.id}
+                      name={coin.name}
+                      price={coin.price}
+                      priceChangePercentageWeekly={
+                        coin.priceChangePercentageWeekly
+                      }
+                      img={coin.image}
+                    />
+                  );
+                })}
+              </div>
+            )}
+            {isLoading && (
+              <p className={classes['dashboard-desk']}>Loading..</p>
+            )}
             <div
               onClick={() => {
                 if (currentPage < Math.ceil(coins.length / coinsPerPage)) {

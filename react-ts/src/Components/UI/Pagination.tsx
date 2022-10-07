@@ -1,4 +1,5 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
+
 import classes from './Pagination.module.scss';
 
 type PaginationProps = {
@@ -13,6 +14,7 @@ const Pagination = function <T>({
   totalElements,
   paginate,
 }: T & PaginationProps) {
+  const [buttonClicked, setButtonClicked] = useState<boolean>(false);
   const numberOfPages = [];
 
   for (let i = 1; i <= Math.ceil(totalElements / elementsPerPage); i++) {
@@ -23,11 +25,15 @@ const Pagination = function <T>({
     <nav>
       <ul className={classes.pagination}>
         {numberOfPages.map((num) => {
-          console.log(num);
           return (
             <li key={num}>
               <button
-                onClick={() => {
+                onClick={function (e) {
+                  
+                  const target = e.target as Element;
+                  setButtonClicked(true);
+                  target.classList.add(classes['pagination-circle-clicked']);
+
                   paginate(num);
                 }}
                 data-id={num}

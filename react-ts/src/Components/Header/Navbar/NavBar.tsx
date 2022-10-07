@@ -1,14 +1,14 @@
 import React from 'react';
 import classes from './NavBar.module.scss';
 import NavBarGreeting from './NavBarGreeing';
-import SearchBar from './NavSearch';
+import NavSearch from './NavSearch';
 
 const NavBar = (props:any) => {
   return (
     <nav className={classes['nav-bar']}>
       <NavBarGreeting />
       <div className={classes['search-container']}>
-        <SearchBar />
+        <NavSearch />
         <div className={classes.icons}>
           <div className={classes['icon-back']}>
             <svg
