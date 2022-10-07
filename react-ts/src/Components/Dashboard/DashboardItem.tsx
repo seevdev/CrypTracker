@@ -15,6 +15,7 @@ function DashBoardItem(props: ItemProps) {
     <div className={classes.item}>
       <div>
         <img src={props.img} />
+        <span>{props.name}</span>
         <span>{price}</span>
         <span>{`${props.priceChangePercentageWeekly}% this week`}</span>
       </div>

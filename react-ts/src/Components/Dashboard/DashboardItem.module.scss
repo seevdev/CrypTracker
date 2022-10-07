@@ -1,12 +1,14 @@
 @use '/src/Utilities/Variables.module' as vars;
 
 .item {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   width: 230px;
-  height: 150px;
-  padding: calc(vars.$unit-s * 4.5);
+  height: 175px;
+  padding: calc(vars.$unit-s * 5);
+
   border-radius: calc(vars.$bradius-m * 2);
   background-color: vars.$ditem-color;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
@@ -27,7 +29,26 @@
   .icon {
     width: 20px;
     height: 20px;
-    stroke: #ccc ;
+    stroke: #ccc;
     cursor: pointer;
   }
+  // &:after {
+  //   display: block;
+  //   content: '';
+  //   width: 230px;
+  //   height: 175px;
+
+  //   background: rgb(14, 223, 129);
+  //   background: linear-gradient(
+  //     195deg,
+  //     rgba(14, 223, 129, 0.2805497198879552) 19%,
+  //     rgba(9, 121, 82, 0) 33%
+  //   );
+  //   opacity: 50%;
+  //   border-radius: calc(vars.$bradius-m * 2);
+  //   left: 0;
+  //   top: 0;
+  //   position: absolute;
+  // }
+  // background-image: linear-gradient(-20deg, #dcb0ed 0%, #99c99c 100%);
 }

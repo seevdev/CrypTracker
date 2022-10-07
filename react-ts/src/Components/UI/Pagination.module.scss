@@ -3,11 +3,14 @@
 .pagination {
   display: flex;
   gap: $unit-m;
-  
+
   .pagination-circle {
-    width: 5px;
-    height: 5px;
+    display: block;
+    width: 10px;
+    height: 10px;
     border-radius: 100%;
-    background-color: $base-color;
+    background-color: red;
+    border: none;
+    cursor: pointer;
   }
 }

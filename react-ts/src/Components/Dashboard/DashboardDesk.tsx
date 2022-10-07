@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { IconArrowR, IconArrowL } from '../../Utilities/Icons';
+import Pagination from '../UI/Pagination';
 import classes from './DashboardDesk.module.scss';
 import DashBoardItem from './DashboardItem';
 
@@ -16,11 +17,10 @@ type Children = {
 };
 
 function DashBoardDesk<T>(props: T & Children) {
-  
   const [coins, setCoins] = useState<Coin[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isSearching, setIsSearching] = useState<boolean>(false);
-  const [currentPage, setCurrentPage] = useState<number>(3);
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const [coinsPerPage, setCoinsPerPage] = useState<number>(9);
 
   const getCoinsHandler = useCallback(async function () {
@@ -37,7 +37,7 @@ function DashBoardDesk<T>(props: T & Children) {
         let newCoin;
         return (newCoin = {
           id: coin.id,
-          image: coin.image.thumb,
+          image: coin.image.large,
           name: coin.name,
           price: coin.market_data.current_price.usd,
           priceChangePercentageWeekly:
@@ -54,6 +54,9 @@ function DashBoardDesk<T>(props: T & Children) {
     getCoinsHandler();
   }, [getCoinsHandler]);
 
+  const paginateHandler = (n: number) => {
+    setCurrentPage(n);
+  };
   // Get currrent coins
   const indexOfLastCoin = currentPage * coinsPerPage;
   const indexOfFirstCoin = indexOfLastCoin - coinsPerPage;
@@ -80,6 +83,11 @@ function DashBoardDesk<T>(props: T & Children) {
           </div>
           {IconArrowR}
         </div>
+        <Pagination
+          elementsPerPage={coinsPerPage}
+          totalElements={coins.length}
+          paginate={paginateHandler}
+        />
         <div className={classes.graph}></div>
       </div>
     </div>

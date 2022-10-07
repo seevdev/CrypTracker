@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import classes from './Pagination.module.scss';
 
 type PaginationProps = {
   elementsPerPage: number;
   totalElements: number;
-  paginate: (a: number) => void;
+  paginate: (num: number) => void;
   children?: React.ReactNode;
 };
 
@@ -23,14 +23,16 @@ const Pagination = function <T>({
     <nav>
       <ul className={classes.pagination}>
         {numberOfPages.map((num) => {
+          console.log(num);
           return (
-            <li>
-              <a href='#'>
-                <div
-                  data-id={num}
-                  className={classes['pagination-circle']}
-                ></div>
-              </a>
+            <li key={num}>
+              <button
+                onClick={() => {
+                  paginate(num);
+                }}
+                data-id={num}
+                className={classes['pagination-circle']}
+              ></button>
             </li>
           );
         })}
