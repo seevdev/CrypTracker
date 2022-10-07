@@ -15,9 +15,9 @@ function DashBoardItem(props: ItemProps) {
     <div className={classes.item}>
       <div>
         <img src={props.img} />
-        <span>{props.name}</span>
-        <span>{price}</span>
-        <span>{`${props.priceChangePercentageWeekly}% this week`}</span>
+        <span className={classes.name}>{props.name}</span>
+        <span className={classes.price}>{price}</span>
+        <span className={classes['weekly-percent']}>{`${props.priceChangePercentageWeekly}% this week`}</span>
       </div>
       <svg
         xmlns='http://www.w3.org/2000/svg'

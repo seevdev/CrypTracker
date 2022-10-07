@@ -26,12 +26,11 @@ function DashBoardDesk<T>(props: T & Children) {
   const getCoinsHandler = useCallback(async function () {
     try {
       const response = await fetch('https://api.coingecko.com/api/v3/coins');
-      console.log(response);
+
       if (!response.ok) {
         throw new Error('Something went wrong..');
       }
       const data = await response.json();
-      console.log(data);
 
       const dataRestructured: Coin[] = data.map((coin: any) => {
         let newCoin;
@@ -66,28 +65,48 @@ function DashBoardDesk<T>(props: T & Children) {
     <div className={classes['dashboard-container']}>
       <h2>Dashboard</h2>
       <div className={classes.container}>
-        <div className={classes['dashboard-arrows-cont']}>
-          {IconArrowL}
-          <div className={classes['dashboard-desk']}>
-            {currentCoins.map((coin) => {
-              return (
-                <DashBoardItem
-                  id={coin.id}
-                  name={coin.name}
-                  price={coin.price}
-                  priceChangePercentageWeekly={coin.priceChangePercentageWeekly}
-                  img={coin.image}
-                />
-              );
-            })}
+        <div className={classes['dashboard-padination']}>
+          <div className={classes['dashboard-arrows-cont']}>
+            <div
+              onClick={() => {
+                if (currentPage > 1) {
+                  setCurrentPage((prevPage) => prevPage - 1);
+                }
+              }}
+            >
+              {IconArrowL}
+            </div>
+            <div className={classes['dashboard-desk']}>
+              {currentCoins.map((coin) => {
+                return (
+                  <DashBoardItem
+                    id={coin.id}
+                    name={coin.name}
+                    price={coin.price}
+                    priceChangePercentageWeekly={
+                      coin.priceChangePercentageWeekly
+                    }
+                    img={coin.image}
+                  />
+                );
+              })}
+            </div>
+            <div
+              onClick={() => {
+                if (currentPage < Math.ceil(coins.length / coinsPerPage)) {
+                  setCurrentPage((prevPage) => prevPage + 1);
+                }
+              }}
+            >
+              {IconArrowR}
+            </div>
           </div>
-          {IconArrowR}
+          <Pagination
+            elementsPerPage={coinsPerPage}
+            totalElements={coins.length}
+            paginate={paginateHandler}
+          />
         </div>
-        <Pagination
-          elementsPerPage={coinsPerPage}
-          totalElements={coins.length}
-          paginate={paginateHandler}
-        />
         <div className={classes.graph}></div>
       </div>
     </div>

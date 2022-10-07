@@ -15,7 +15,7 @@ const Pagination = function <T>({
 }: T & PaginationProps) {
   const numberOfPages = [];
 
-  for (let i = 1; i < Math.ceil(totalElements / elementsPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(totalElements / elementsPerPage); i++) {
     numberOfPages.push(i);
   }
 

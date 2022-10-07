@@ -1,4 +1,13 @@
-.icon{
-    width: 24px;
-    height: 24px;
+.icon {
+  width: 24px;
+  height: 24px;
+
+  &.icon-arrow {
+    stroke: #5a5961;
+    cursor: pointer;
   }
+  &.icon-arrow:hover,
+  &.icon-arroe:active {
+    stroke: #98989c;
+  }
+}
