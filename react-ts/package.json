@@ -45,6 +45,7 @@
     ]
   },
   "devDependencies": {
+    "react-html-props": "^1.0.33",
     "typescript-plugin-css-modules": "^3.4.0"
   }
 }

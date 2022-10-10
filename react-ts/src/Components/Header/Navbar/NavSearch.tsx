@@ -1,10 +1,20 @@
-import React,{useState} from 'react';
+import React, { useState, useContext, ChangeEvent } from 'react';
+import SearchContext from '../../../store/search-context';
 import Input from '../../UI/Input';
 import classes from './NavSearch.module.scss';
 
 const NavSearch = (props: any) => {
-  const [isSearching, setIsSearching] = useState<boolean>(false);
-  
+  const [isSearching, setIsSearching] = useState(false);
+  const searchingCtx = useContext(SearchContext);
+
+  const searchHandler = (e: ChangeEvent) => {
+    // 1.Changes state to isSearching = true
+    // 2.Filteres array of coins and changes context arr
+    const target = e.target as HTMLInputElement;
+    target.value === '' ? setIsSearching(false) : setIsSearching(true);
+    searchingCtx.isSearching = isSearching;
+  };
+
   return (
     <div className={classes['nav-search']}>
       <svg
@@ -22,7 +32,7 @@ const NavSearch = (props: any) => {
         />
       </svg>
 
-      <Input />
+      <Input onChange={searchHandler} />
     </div>
   );
 };

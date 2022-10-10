@@ -1,15 +1,14 @@
-import React, { useContext } from 'react';
-import SearchContext from '../../store/SearchContext';
+import React from 'react';
+import { InputProps } from 'react-html-props';
 import classes from './Input.module.scss';
 
-const Input: React.FC = (props) => {
-  const searchCtx = useContext(SearchContext);
-  console.log(searchCtx)
-  const onChangeHandler = () => {};
+const Input = function (
+  props: { searchHandler?: () => {}; label?: string } & InputProps
+) {
   return (
     <div className={classes['input-container']}>
-      <label></label>
-      <input onChange={onChangeHandler} {...props} />
+      <label>{props.label}</label>
+      <input onChange={props.searchHandler} {...props} />
     </div>
   );
 };

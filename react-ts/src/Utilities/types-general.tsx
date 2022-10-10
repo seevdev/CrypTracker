@@ -11,3 +11,11 @@ export type Coin = {
   children?: React.ReactNode;
   currentCoins?: any;
 };
+
+export type SearchCtx = {
+  coins: Coin[];
+  isSearching: boolean;
+  // searchHandler(event: React.ChangeEvent<HTMLInputElement>)=>void;
+  searchHandler: ()=> void;
+  value?: any;
+};

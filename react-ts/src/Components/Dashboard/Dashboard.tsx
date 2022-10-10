@@ -2,21 +2,21 @@ import React, { useState } from 'react';
 import Header from '../Header/Header';
 import Sidemenu from '../Sidemenu/Sidemenu';
 import DashBoardDesk from './DashboardDesk';
-import SearchContext from '../../store/SearchContext';
+import SearchContext from '../../store/search-context';
 import classes from './Dashboard.module.scss';
+import IsSearchingProvider from '../../store/SearchingProvider';
 
 function Dashboard<T>(props: T) {
-
-const [isSearching, setIsSearching] = useState<boolean>(false);
+  const [isSearching, setIsSearching] = useState<boolean>(false);
 
   return (
-    <SearchContext.Provider value={isSearching}>
+    <IsSearchingProvider>
       <div className={classes.dashboard}>
         <Sidemenu />
         <Header />
         <DashBoardDesk />
       </div>
-    </SearchContext.Provider>
+    </IsSearchingProvider>
   );
 }
 
