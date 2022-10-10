@@ -1,0 +1,13 @@
+@import '/src/Utilities/Variables.module';
+
+.coins-container{
+  display: grid;
+  justify-items: center;
+  max-width: 45vw;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-auto-rows: 19rem;
+  row-gap: calc($unit-m * 4);
+  column-gap: calc($unit-m * 4);
+  grid-column: 2;
+  height: 100%;
+}

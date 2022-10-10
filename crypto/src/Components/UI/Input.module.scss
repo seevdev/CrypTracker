@@ -1,0 +1,11 @@
+@use '/src/Utilities/Variables.module' as vars;
+
+.input-container {
+  input {
+    border-radius: vars.$bradius-l;
+    border: none;
+    padding: vars.$unit-m;
+    color: inherit;
+    font-size: inherit;
+  }
+}

@@ -1,0 +1,37 @@
+@use '/src/Utilities/Variables.module' as vars;
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // height:calc(vars.$unit-l*2);
+  // margin-bottom: vars.$unit-l * 2;
+  .search-container {
+    display: flex;
+    flex-direction: row;
+    gap: calc(vars.$unit-l * 2);
+    @include vars.flex-center;
+  }
+  .icons {
+    display: flex;
+    gap: calc(vars.$unit-l * 2);
+  }
+  img {
+    height: 30px;
+    width: 30px;
+  }
+  .icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+  .icon-back {
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: vars.$base-color;
+  }
+}

@@ -1,0 +1,19 @@
+@use '/src/Utilities/Variables.module' as vars;
+
+.nav-search {
+  display: flex;
+  @include vars.flex-center;
+  background-color: vars.$base-color;
+  border-radius: vars.$bradius-l;
+  
+  input {
+    background-color: transparent;
+  }
+ 
+  .icon{
+    width: 24px;
+    height:24px;
+    margin-left: 1rem;
+  }
+}
+
