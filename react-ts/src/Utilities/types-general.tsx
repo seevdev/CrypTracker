@@ -23,3 +23,6 @@ export type SearchCtx = {
   filteredCoinsChangeHandler: (val: Coin[]) => void;
   value?: any;
 };
+export type CoinName = {
+  name: string;
+};

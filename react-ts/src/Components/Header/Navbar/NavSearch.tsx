@@ -11,7 +11,7 @@ const NavSearch = (props: any) => {
 
   const searchHandler = (e: ChangeEvent) => {
     const target = e.target as HTMLInputElement;
-    setInputValue(target.value);
+    setInputValue((prev) => target.value);
   };
 
   useEffect(() => {
@@ -20,9 +20,11 @@ const NavSearch = (props: any) => {
     } else {
       changeSearching(false);
     }
-    const results = coins.filter((coin) => coin.name === 'Bitcoin');
+    const results = coins.filter((coin) =>
+      coin.name.toLowerCase().includes(inputValue.toLocaleLowerCase())
+    );
 
-    filteredCoinsChangeHandler(results);
+    filteredCoinsChangeHandler([...results]);
   }, [inputValue]);
 
   return (
