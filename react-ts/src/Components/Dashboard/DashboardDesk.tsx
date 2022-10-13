@@ -36,10 +36,8 @@ function DashBoardDesk<T>(props: T) {
             item.market_data.price_change_percentage_7d,
         });
       });
-      console.log(dataRestructured);
       setCoins(dataRestructured);
       setIsLoading(false);
-      coinsChangeHandler(coins);
     } catch (e) {
       console.log(e.message);
     }
@@ -48,6 +46,10 @@ function DashBoardDesk<T>(props: T) {
   useEffect(() => {
     getCoinsHandler();
   }, [getCoinsHandler]);
+
+  useEffect(() => {
+    coinsChangeHandler(coins);
+  }, [coins]);
 
   const paginateHandler = (n: number) => {
     setCurrentPage(n);

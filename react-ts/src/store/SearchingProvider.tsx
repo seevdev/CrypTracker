@@ -18,7 +18,6 @@ const SearchingProvider = function <T>(props: T & Children) {
 
   const coinsChangeHandler = function (val: Coin[]): void {
     setCoins(val);
-    console.log(coins);
   };
 
   const filteredCoinsChangeHandler = function (val: Coin[]): void {

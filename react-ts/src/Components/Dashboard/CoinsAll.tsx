@@ -8,6 +8,7 @@ const CoinsAll = function ({ currentCoins }: any) {
       {currentCoins.map((coin: any) => {
         return (
           <CoinItem
+          key={coin.id}
             id={coin.id}
             name={coin.name}
             price={coin.price}

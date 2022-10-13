@@ -10,11 +10,10 @@ const NavSearch = (props: any) => {
     useContext(SearchContext);
 
   const searchHandler = (e: ChangeEvent) => {
-    // 1.Changes state to isSearching = true
-    // 2.Filteres array of coins and changes context arr
     const target = e.target as HTMLInputElement;
     setInputValue(target.value);
   };
+
   useEffect(() => {
     if (inputValue.trim().length > 0) {
       changeSearching(true);
@@ -24,7 +23,7 @@ const NavSearch = (props: any) => {
     const results = coins.filter((coin) => coin.name === 'Bitcoin');
 
     filteredCoinsChangeHandler(results);
-  }, [ inputValue]);
+  }, [inputValue]);
 
   return (
     <div className={classes['nav-search']}>

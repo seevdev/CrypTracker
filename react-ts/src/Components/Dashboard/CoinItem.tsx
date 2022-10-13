@@ -5,7 +5,7 @@ import classes from './CoinItem.module.scss';
 function CoinItem(props: Coin) {
   const price = `$${Math.trunc(props.price).toLocaleString('en-US')}`;
   return (
-    <div className={classes.item}>
+    <div key={props.id} className={classes.item}>
       <div>
         <img src={props.image} />
         <span className={classes.name}>{props.name}</span>
