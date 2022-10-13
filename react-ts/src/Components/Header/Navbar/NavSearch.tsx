@@ -1,19 +1,30 @@
-import React, { useState, useContext, ChangeEvent } from 'react';
+import React, { useState, useContext, ChangeEvent, useEffect } from 'react';
 import SearchContext from '../../../store/search-context';
+import { Coin } from '../../../Utilities/types-general';
 import Input from '../../UI/Input';
 import classes from './NavSearch.module.scss';
 
 const NavSearch = (props: any) => {
-  const [isSearching, setIsSearching] = useState(false);
-  const searchingCtx = useContext(SearchContext);
+  const [inputValue, setInputValue] = useState('');
+  const { isSearching, changeSearching, coins, filteredCoinsChangeHandler } =
+    useContext(SearchContext);
 
   const searchHandler = (e: ChangeEvent) => {
     // 1.Changes state to isSearching = true
     // 2.Filteres array of coins and changes context arr
     const target = e.target as HTMLInputElement;
-    target.value === '' ? setIsSearching(false) : setIsSearching(true);
-    searchingCtx.isSearching = isSearching;
+    setInputValue(target.value);
   };
+  useEffect(() => {
+    if (inputValue.trim().length > 0) {
+      changeSearching(true);
+    } else {
+      changeSearching(false);
+    }
+    const results = coins.filter((coin) => coin.name === 'Bitcoin');
+
+    filteredCoinsChangeHandler(results);
+  }, [ inputValue]);
 
   return (
     <div className={classes['nav-search']}>
@@ -31,8 +42,7 @@ const NavSearch = (props: any) => {
           d='M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z'
         />
       </svg>
-
-      <Input onChange={searchHandler} />
+      <Input value={inputValue} onChange={searchHandler} />
     </div>
   );
 };

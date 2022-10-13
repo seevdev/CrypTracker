@@ -14,8 +14,12 @@ export type Coin = {
 
 export type SearchCtx = {
   coins: Coin[];
+  filteredCoins: Coin[];
   isSearching: boolean;
   // searchHandler(event: React.ChangeEvent<HTMLInputElement>)=>void;
-  searchHandler: ()=> void;
+  searchHandler: () => void;
+  changeSearching: (a: boolean) => void;
+  coinsChangeHandler: (val: Coin[]) => void;
+  filteredCoinsChangeHandler: (val: Coin[]) => void;
   value?: any;
 };

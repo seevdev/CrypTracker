@@ -8,7 +8,7 @@ const Input = function (
   return (
     <div className={classes['input-container']}>
       <label>{props.label}</label>
-      <input onChange={props.searchHandler} {...props} />
+      <input onChange={props.searchHandler} {...props} value = {props.value} />
     </div>
   );
 };

@@ -1,21 +1,20 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useContext } from 'react';
 import { IconArrowR, IconArrowL } from '../../Utilities/Icons';
 import { Coin } from '../../Utilities/types-general';
+import SearchContext from '../../store/search-context';
 import CoinsAll from './CoinsAll';
 import Pagination from '../UI/Pagination';
 import classes from './DashboardDesk.module.scss';
 
 function DashBoardDesk<T>(props: T) {
-  const [coins, setCoins] = useState<any>([]);
+  const [coins, setCoins] = useState<Coin[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [coinsPerPage, setCoinsPerPage] = useState<number>(9);
-  const [isSearching, setIsSearching] = useState<boolean>(false);
 
-  const searchingHandler = () => {
-    setIsSearching(true);
-  };
-  
+  const { coinsChangeHandler, isSearching, filteredCoins } =
+    useContext(SearchContext);
+
   const getCoinsHandler = useCallback(async function () {
     try {
       setIsLoading(true);
@@ -40,6 +39,7 @@ function DashBoardDesk<T>(props: T) {
       console.log(dataRestructured);
       setCoins(dataRestructured);
       setIsLoading(false);
+      coinsChangeHandler(coins);
     } catch (e) {
       console.log(e.message);
     }
@@ -55,7 +55,9 @@ function DashBoardDesk<T>(props: T) {
   // Get currrent coins
   const indexOfLastCoin = currentPage * coinsPerPage;
   const indexOfFirstCoin = indexOfLastCoin - coinsPerPage;
-  const currentCoins = coins.slice(indexOfFirstCoin, indexOfLastCoin);
+  let currentCoins = isSearching
+    ? filteredCoins.slice(indexOfFirstCoin, indexOfLastCoin)
+    : coins.slice(indexOfFirstCoin, indexOfLastCoin);
 
   return (
     <div className={classes['dashboard-container']}>
@@ -72,10 +74,8 @@ function DashBoardDesk<T>(props: T) {
             >
               {IconArrowL}
             </div>
-            {!isLoading && !isSearching && (
-              <CoinsAll currentCoins={currentCoins} />
-            )}
-            {isLoading && !isSearching && (
+            {!isLoading && <CoinsAll currentCoins={currentCoins} />}
+            {isLoading && (
               <p className={classes['dashboard-desk']}>Loading..</p>
             )}
             <div
