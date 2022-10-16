@@ -1,12 +1,11 @@
 import React, { useState, useContext, ChangeEvent, useEffect } from 'react';
 import SearchContext from '../../../store/search-context';
-import { Coin } from '../../../Utilities/types-general';
 import Input from '../../UI/Input';
 import classes from './NavSearch.module.scss';
 
-const NavSearch = (props: any) => {
+const NavSearch = () => {
   const [inputValue, setInputValue] = useState('');
-  const { isSearching, changeSearching, coins, filteredCoinsChangeHandler } =
+  const { changeSearching, coins, filteredCoinsChangeHandler } =
     useContext(SearchContext);
 
   const searchHandler = (e: ChangeEvent) => {

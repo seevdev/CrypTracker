@@ -22,6 +22,7 @@
     flex-flow: column;
     @include flex-center;
     gap: calc($unit-l*1.5);
+    height: 95%;
   }
   .graph {
     width: 300px;
@@ -38,7 +39,7 @@
     display: flex;
     @include flex-center;
     gap: calc($unit-l * 2);
-    min-height: 65rem;
+   
   }
 
   .icon {

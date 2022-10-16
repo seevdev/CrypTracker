@@ -93,7 +93,7 @@ function DashBoardDesk<T>(props: T) {
           <Pagination
             currentPage={currentPage}
             elementsPerPage={coinsPerPage}
-            totalElements={coins.length}
+            totalElements={!isSearching ? coins.length : currentCoins.length}
             paginate={paginateHandler}
           />
         </div>
