@@ -1,32 +1,29 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './NavBar.scss';
+import { IconTheme } from '../../../Utilities/Icons';
 import NavBarGreeting from './NavBarGreeing';
 import NavSearch from './NavSearch';
+import themeContext from '../../../store/theme-context';
+import { link } from 'fs';
 
 const NavBar = (props: any) => {
+  const { setTheme, theme } = useContext(themeContext);
+  const onClickHandler = () => {
+    const defaultTheme = 'dark';
+    theme === defaultTheme ? setTheme('light') : setTheme('dark');
+  };
   return (
     <nav className='nav-bar'>
       <NavBarGreeting />
       <div className='search-container'>
         <NavSearch />
         <div className='icons'>
-          <div className='icon-back'>
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              fill='none'
-              viewBox='0 0 24 24'
-              strokeWidth={1.5}
-              stroke='currentColor'
-              className='icon'
-            >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                d='M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z'
-              />
-            </svg>
+          <div className='nav_icon-back'>
+            <button className='nav_btn' onClick={onClickHandler}>
+              <div>{IconTheme}</div>
+            </button>
           </div>
-          <div className='icon-back'>
+          <div className='nav_icon-back'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               fill='none'

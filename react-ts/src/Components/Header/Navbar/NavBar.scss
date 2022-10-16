@@ -10,7 +10,6 @@
     flex-direction: row;
     gap: calc($unit-l * 2);
     @include flex-center;
-    
   }
   .icons {
     display: flex;
@@ -25,15 +24,11 @@
     height: 24px;
     cursor: pointer;
   }
-  .icon-back {
-    @include themify($themes) {
-      background-color: themed('baseColor');
-    }
-    width: 48px;
-    height: 48px;
-    border-radius: 100%;
+
+  .nav_btn {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center;
+    background: none;
+    border: none;
   }
 }

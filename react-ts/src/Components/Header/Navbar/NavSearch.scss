@@ -5,6 +5,7 @@
   @include flex-center;
   @include themify($themes) {
     background-color: themed('baseColor');
+    color: themed('textColor');
   }
   border-radius:$bradius-l;
   

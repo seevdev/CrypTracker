@@ -4,6 +4,8 @@
   width: 24px;
   height: 24px;
 
+  
+
   &.icon-arrow {
     @include themify($themes) {
       stroke: themed('baseColor');
@@ -13,5 +15,22 @@
   &.icon-arrow:hover,
   &.icon-arroe:active {
     stroke: #98989c;
+  }
+}
+
+.nav_icon-back {
+  @include themify($themes) {
+    background-color: themed('baseColor');
+    color: themed('textColor');
+  }
+  width: 48px;
+  height: 48px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover{
+    background-color: #22c55e;
   }
 }

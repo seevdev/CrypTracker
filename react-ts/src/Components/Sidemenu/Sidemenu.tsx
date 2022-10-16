@@ -1,22 +1,22 @@
 import React from 'react';
 
-import classes from './Sidemenu.module.scss';
+import  './Sidemenu.scss';
 
 const Sidemenu = (props: any) => {
   return (
-    <menu className={classes.menu}>
+    <menu className='menu'>
       <h1>CrypTracker</h1>
       <ul>
         <li>
           <div>
-            <div className={classes['icon-back']}>
+            <div className='side-menu_icon-back'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 fill='none'
                 viewBox='0 0 24 24'
                 strokeWidth={1.5}
                 stroke='currentColor'
-                className={classes.icon}
+                className='icon'
               >
                 <path
                   strokeLinecap='round'
@@ -32,14 +32,14 @@ const Sidemenu = (props: any) => {
 
         <li>
           <div>
-            <div className={classes['icon-back']}>
+            <div className='side-menu_icon-back'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 fill='none'
                 viewBox='0 0 24 24'
                 strokeWidth={1.5}
                 stroke='currentColor'
-                className={classes.icon}
+                className='icon'
               >
                 <path
                   strokeLinecap='round'
@@ -54,14 +54,14 @@ const Sidemenu = (props: any) => {
 
         <li>
           <div>
-            <div className={classes['icon-back']}>
+            <div className='side-menu_icon-back'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 fill='none'
                 viewBox='0 0 24 24'
                 strokeWidth={1.5}
                 stroke='currentColor'
-                className={classes.icon}
+                className='icon'
               >
                 <path
                   strokeLinecap='round'
@@ -75,14 +75,14 @@ const Sidemenu = (props: any) => {
         </li>
         <li>
           <div>
-            <div className={classes['icon-back']}>
+            <div className='side-menu_icon-back'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 fill='none'
                 viewBox='0 0 24 24'
                 strokeWidth={1.5}
                 stroke='currentColor'
-                className={classes.icon}
+                className='icon'
               >
                 <path
                   strokeLinecap='round'
@@ -101,14 +101,14 @@ const Sidemenu = (props: any) => {
         </li>
         <li>
           <div>
-            <div className={classes['icon-back']}>
+            <div className='side-menu_icon-back'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 fill='none'
                 viewBox='0 0 24 24'
                 strokeWidth={1.5}
                 stroke='currentColor'
-                className={classes.icon}
+                className='icon'
               >
                 <path
                   strokeLinecap='round'

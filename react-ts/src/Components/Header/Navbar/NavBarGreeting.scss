@@ -1,0 +1,10 @@
+@import '/src/Utilities/Variables';
+
+.greeting {
+  h2{ @include themify($themes) {
+    color: themed('textColor');
+  }}
+  display: flex;
+  align-items: center;
+ 
+}
