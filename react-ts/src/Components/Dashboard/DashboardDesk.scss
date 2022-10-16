@@ -1,10 +1,14 @@
-@import '/src/Utilities/Variables.module';
+@import '/src/Utilities/Variables';
 
 .dashboard-container {
+  @include themify($themes) {
+    background-color: themed('baseColor');
+    color: themed('textColor');
+  }
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
-  background-color: $base-color;
+
   border-radius: $bradius-l;
   height: 85vh;
   margin-top: -1.2rem;
@@ -14,14 +18,14 @@
     margin-top: 2rem;
     margin-left: 3.2rem;
     padding: $unit-s;
+    color: inherit;
   }
 
-  
   .dashboard-padination {
     display: flex;
     flex-flow: column;
     @include flex-center;
-    gap: calc($unit-l*1.5);
+    gap: calc($unit-l * 1.5);
     height: 95%;
   }
   .graph {
@@ -39,7 +43,7 @@
     display: flex;
     @include flex-center;
     gap: calc($unit-l * 2);
-   
+    color: inherit;
   }
 
   .icon {

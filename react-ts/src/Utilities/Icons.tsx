@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './Icons.module.scss';
+import './Icons.scss';
 
 export const IconArrowR = (
   <svg
@@ -8,7 +8,7 @@ export const IconArrowR = (
     viewBox='0 0 24 24'
     strokeWidth={1.5}
     stroke='currentColor'
-    className={`${classes.icon} ${classes['icon-arrow']}`}
+    className={`icon icon-arrow`}
   >
     <path
       strokeLinecap='round'
@@ -25,7 +25,7 @@ export const IconArrowL = (
     viewBox='0 0 24 24'
     strokeWidth={1.5}
     stroke='currentColor'
-    className={`${classes.icon} ${classes['icon-arrow']}`}
+    className={`icon icon-arrow`}
   >
     <path
       strokeLinecap='round'

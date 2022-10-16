@@ -1,23 +1,23 @@
 import React from 'react';
-import classes from './NavBar.module.scss';
+import './NavBar.scss';
 import NavBarGreeting from './NavBarGreeing';
 import NavSearch from './NavSearch';
 
-const NavBar = (props:any) => {
+const NavBar = (props: any) => {
   return (
-    <nav className={classes['nav-bar']}>
+    <nav className='nav-bar'>
       <NavBarGreeting />
-      <div className={classes['search-container']}>
+      <div className='search-container'>
         <NavSearch />
-        <div className={classes.icons}>
-          <div className={classes['icon-back']}>
+        <div className='icons'>
+          <div className='icon-back'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               fill='none'
               viewBox='0 0 24 24'
               strokeWidth={1.5}
               stroke='currentColor'
-              className={classes.icon}
+              className='icon'
             >
               <path
                 strokeLinecap='round'
@@ -26,14 +26,14 @@ const NavBar = (props:any) => {
               />
             </svg>
           </div>
-          <div className={classes['icon-back']}>
+          <div className='icon-back'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               fill='none'
               viewBox='0 0 24 24'
               strokeWidth={1.5}
               stroke='currentColor'
-              className={classes.icon}
+              className='icon'
             >
               <path
                 strokeLinecap='round'

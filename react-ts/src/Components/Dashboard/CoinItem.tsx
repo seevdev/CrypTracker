@@ -1,18 +1,16 @@
 import React from 'react';
 import { Coin } from '../../Utilities/types-general';
-import classes from './CoinItem.module.scss';
+import './CoinItem.scss';
 
 function CoinItem(props: Coin) {
   const price = `$${Math.trunc(props.price).toLocaleString('en-US')}`;
   return (
-    <div key={props.id} className={classes.item}>
+    <div key={props.id} className='item'>
       <div>
         <img src={props.image} />
-        <span className={classes.name}>{props.name}</span>
-        <span className={classes.price}>{price}</span>
-        <span
-          className={classes['weekly-percent']}
-        >{`${props.priceChangePercentageWeekly}% this week`}</span>
+        <span className='name'>{props.name}</span>
+        <span className='price'>{price}</span>
+        <span className='weekly-percent'>{`${props.priceChangePercentageWeekly}% this week`}</span>
       </div>
       <svg
         xmlns='http://www.w3.org/2000/svg'
@@ -20,7 +18,7 @@ function CoinItem(props: Coin) {
         viewBox='0 0 24 24'
         strokeWidth={1.5}
         stroke='currentColor'
-        className={classes.icon}
+        className='icon'
       >
         <path
           strokeLinecap='round'

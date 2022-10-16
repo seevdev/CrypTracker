@@ -1,7 +1,7 @@
 import React, { useState, useContext, ChangeEvent, useEffect } from 'react';
 import SearchContext from '../../../store/search-context';
 import Input from '../../UI/Input';
-import classes from './NavSearch.module.scss';
+import './NavSearch.scss';
 
 const NavSearch = () => {
   const [inputValue, setInputValue] = useState('');
@@ -27,14 +27,14 @@ const NavSearch = () => {
   }, [inputValue]);
 
   return (
-    <div className={classes['nav-search']}>
+    <div className='nav-search'>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         fill='none'
         viewBox='0 0 24 24'
         strokeWidth={1.5}
         stroke='currentColor'
-        className={classes.icon}
+        className='icon'
       >
         <path
           strokeLinecap='round'

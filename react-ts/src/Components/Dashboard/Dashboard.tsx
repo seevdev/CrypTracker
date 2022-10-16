@@ -1,21 +1,23 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import Header from '../Header/Header';
 import Sidemenu from '../Sidemenu/Sidemenu';
 import DashBoardDesk from './DashboardDesk';
-import SearchContext from '../../store/search-context';
-import classes from './Dashboard.module.scss';
+import './Dashboard.scss';
 import IsSearchingProvider from '../../store/SearchingProvider';
+import ThemeContextProvider from '../../store/ThemeContextProvider';
+import themeContext from '../../store/theme-context';
 
 function Dashboard<T>(props: T) {
-  const [isSearching, setIsSearching] = useState<boolean>(false);
-
+  const { theme } = useContext(themeContext);
   return (
     <IsSearchingProvider>
-      <div className={classes.dashboard}>
-        <Sidemenu />
-        <Header />
-        <DashBoardDesk />
-      </div>
+      <ThemeContextProvider>
+        <div className='dashboard'>
+          <Sidemenu />
+          <Header />
+          <DashBoardDesk />
+        </div>
+      </ThemeContextProvider>
     </IsSearchingProvider>
   );
 }

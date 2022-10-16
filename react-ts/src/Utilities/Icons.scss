@@ -1,9 +1,13 @@
+@import '/src/Utilities/Variables';
+
 .icon {
   width: 24px;
   height: 24px;
 
   &.icon-arrow {
-    stroke: #5a5961;
+    @include themify($themes) {
+      stroke: themed('baseColor');
+    }
     cursor: pointer;
   }
   &.icon-arrow:hover,

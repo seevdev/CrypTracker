@@ -4,7 +4,7 @@ import { Coin } from '../../Utilities/types-general';
 import SearchContext from '../../store/search-context';
 import CoinsAll from './CoinsAll';
 import Pagination from '../UI/Pagination';
-import classes from './DashboardDesk.module.scss';
+import './DashboardDesk.scss';
 
 function DashBoardDesk<T>(props: T) {
   const [coins, setCoins] = useState<Coin[]>([]);
@@ -62,11 +62,11 @@ function DashBoardDesk<T>(props: T) {
     : coins.slice(indexOfFirstCoin, indexOfLastCoin);
 
   return (
-    <div className={classes['dashboard-container']}>
+    <div className='dashboard-container'>
       <h2>Dashboard</h2>
-      <div className={classes.container}>
-        <div className={classes['dashboard-padination']}>
-          <div className={classes['dashboard-arrows-cont']}>
+      <div className='container'>
+        <div className='dashboard-padination'>
+          <div className='dashboard-arrows-cont'>
             <div
               onClick={() => {
                 if (currentPage > 1) {
@@ -77,9 +77,7 @@ function DashBoardDesk<T>(props: T) {
               {IconArrowL}
             </div>
             {!isLoading && <CoinsAll currentCoins={currentCoins} />}
-            {isLoading && (
-              <p className={classes['dashboard-desk']}>Loading..</p>
-            )}
+            {isLoading && <p className='dashboard-desk'>Loading..</p>}
             <div
               onClick={() => {
                 if (currentPage < Math.ceil(coins.length / coinsPerPage)) {
@@ -97,7 +95,7 @@ function DashBoardDesk<T>(props: T) {
             paginate={paginateHandler}
           />
         </div>
-        <div className={classes.graph}></div>
+        <div className='graph'></div>
       </div>
     </div>
   );
