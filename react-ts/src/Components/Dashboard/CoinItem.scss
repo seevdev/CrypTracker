@@ -1,11 +1,12 @@
-@import '/src/Utilities/Variables' ;
+@import '/src/Utilities/Variables';
 
 .item {
+  position: relative;
+
   @include themify($themes) {
     background-color: themed('baseColor');
     color: themed('textColor');
   }
-  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -19,7 +20,7 @@
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
 
-  & > div {
+  .coin-info-container {
     display: flex;
     flex-direction: column;
     gap: 2rem;

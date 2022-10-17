@@ -1,12 +1,13 @@
 import React from 'react';
 import { Coin } from '../../Utilities/types-general';
 import './CoinItem.scss';
+import InfoMenu from './InfoMenu';
 
 function CoinItem(props: Coin) {
   const price = `$${Math.trunc(props.price).toLocaleString('en-US')}`;
   return (
     <div key={props.id} className='item'>
-      <div>
+      <div className='coin-info-container' >
         <img src={props.image} />
         <span className='name'>{props.name}</span>
         <span className='price'>{price}</span>
@@ -26,6 +27,7 @@ function CoinItem(props: Coin) {
           d='M12 4.5v15m7.5-7.5h-15'
         />
       </svg>
+      <InfoMenu />
     </div>
   );
 }

@@ -1,0 +1,29 @@
+@import '/src/Utilities/Variables';
+
+.info-container {
+  display: none;
+  display: flex;
+  position: absolute;
+  top: 25%;
+  left: 57%;
+  border-radius: 5px;
+
+  @include themify($themes) {
+    background-color: themed('backColor');
+    color: themed('textColor');
+  }
+  flex-flow: column;
+  @include flex-center;
+
+  span {
+    padding: 1.2rem;
+    button {
+      @include themify($themes) {
+        color: themed('textColor');
+      }
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+    }
+  }
+}
