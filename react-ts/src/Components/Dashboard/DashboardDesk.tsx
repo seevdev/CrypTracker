@@ -11,6 +11,7 @@ function DashBoardDesk<T>(props: T) {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [coinsPerPage, setCoinsPerPage] = useState<number>(9);
+  const [display, setDisplay] = useState<boolean>(false);
 
   const { coinsChangeHandler, isSearching, filteredCoins } =
     useContext(SearchContext);
@@ -61,39 +62,56 @@ function DashBoardDesk<T>(props: T) {
     ? filteredCoins.slice(indexOfFirstCoin, indexOfLastCoin)
     : coins.slice(indexOfFirstCoin, indexOfLastCoin);
 
+  useEffect(() => {
+    if (
+      (!isSearching && coins.length > coinsPerPage) ||
+      (isSearching && filteredCoins.length > coinsPerPage)
+    ) {
+      setDisplay(true);
+    } else {
+      setDisplay(false);
+    }
+  }, [isSearching, filteredCoins, coins]);
+
   return (
     <div className='dashboard-container'>
       <h2>Dashboard</h2>
       <div className='container'>
         <div className='dashboard-padination'>
           <div className='dashboard-arrows-cont'>
-            <div
-              onClick={() => {
-                if (currentPage > 1) {
-                  setCurrentPage((prevPage) => prevPage - 1);
-                }
-              }}
-            >
-              {IconArrowL}
-            </div>
+            {display && (
+              <div
+                onClick={() => {
+                  if (currentPage > 1) {
+                    setCurrentPage((prevPage) => prevPage - 1);
+                  }
+                }}
+              >
+                {IconArrowL}
+              </div>
+            )}
             {!isLoading && <CoinsAll currentCoins={currentCoins} />}
             {isLoading && <p className='dashboard-desk'>Loading..</p>}
-            <div
-              onClick={() => {
-                if (currentPage < Math.ceil(coins.length / coinsPerPage)) {
-                  setCurrentPage((prevPage) => prevPage + 1);
-                }
-              }}
-            >
-              {IconArrowR}
-            </div>
+            {display && (
+              <div
+                onClick={() => {
+                  if (currentPage < Math.ceil(coins.length / coinsPerPage)) {
+                    setCurrentPage((prevPage) => prevPage + 1);
+                  }
+                }}
+              >
+                {IconArrowR}
+              </div>
+            )}
           </div>
-          <Pagination
-            currentPage={currentPage}
-            elementsPerPage={coinsPerPage}
-            totalElements={!isSearching ? coins.length : currentCoins.length}
-            paginate={paginateHandler}
-          />
+          {display && (
+            <Pagination
+              currentPage={currentPage}
+              elementsPerPage={coinsPerPage}
+              totalElements={!isSearching ? coins.length : filteredCoins.length}
+              paginate={paginateHandler}
+            />
+          )}
         </div>
         <div className='graph'></div>
       </div>
