@@ -18,12 +18,7 @@
   span {
     padding: 1.2rem;
     button {
-      @include themify($themes) {
-        color: themed('textColor');
-      }
-      border: none;
-      background-color: transparent;
-      cursor: pointer;
+     
     }
   }
 }

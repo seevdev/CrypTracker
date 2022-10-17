@@ -16,24 +16,17 @@ const GeneralCtxProvider = function <T>(props: T & Children) {
     }
   };
 
-  const coinsChangeHandler = function (val: Coin[]): void {
-    setCoins(val);
-  };
-
-  const filteredCoinsChangeHandler = function (val: Coin[]): void {
-    setFilteredCoins(val);
-  };
-
-  const onSearch = function (): void {};
+  
 
   const searchCtx: generalCtxType = {
     coins: coins,
     filteredCoins: filteredCoins,
     isSearching: isSearching,
-    searchHandler: onSearch,
+    favCoins: [],
+
     changeSearching: changeSearching,
-    filteredCoinsChangeHandler: filteredCoinsChangeHandler,
-    coinsChangeHandler: coinsChangeHandler,
+    filteredCoinsChangeHandler: setFilteredCoins,
+    coinsChangeHandler: setCoins,
   };
   return (
     <generalCtx.Provider value={searchCtx}>

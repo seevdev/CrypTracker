@@ -1,5 +1,6 @@
 import React from 'react';
 import './InfoMenu.scss';
+import Button from '../UI/Button';
 
 const InfoMenu = () => {
 const addToFavHandler = ()=>{
@@ -9,10 +10,10 @@ const addToFavHandler = ()=>{
   return (
     <div className='info-container '>
       <span>
-        <button>Add to Fav</button>
+      <Button>Add to Fav</Button>
       </span>
       <span>
-        <button>More Info</button>
+      <Button>More Info</Button>
       </span>
     </div>
   );
