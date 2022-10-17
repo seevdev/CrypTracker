@@ -1,7 +1,7 @@
 import React, { createContext, useState } from 'react';
-import { SearchCtx } from '../Utilities/types-general';
+import { generalCtxType } from '../Utilities/types-general';
 
-const SearchContext = createContext<SearchCtx>({
+const generalCtx = createContext<generalCtxType>({
   coins: [
     { id: 0, image: '', name: '', price: 0, priceChangePercentageWeekly: 0 },
   ],
@@ -15,4 +15,4 @@ const SearchContext = createContext<SearchCtx>({
   coinsChangeHandler: () => {},
 });
 
-export default SearchContext;
+export default generalCtx;

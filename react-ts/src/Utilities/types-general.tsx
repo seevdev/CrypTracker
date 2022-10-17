@@ -12,7 +12,7 @@ export type Coin = {
   currentCoins?: any;
 };
 
-export type SearchCtx = {
+export type generalCtxType = {
   coins: Coin[];
   filteredCoins: Coin[];
   isSearching: boolean;

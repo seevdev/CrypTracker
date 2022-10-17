@@ -2,6 +2,10 @@ import React from 'react';
 import './InfoMenu.scss';
 
 const InfoMenu = () => {
+const addToFavHandler = ()=>{
+  
+}
+
   return (
     <div className='info-container '>
       <span>

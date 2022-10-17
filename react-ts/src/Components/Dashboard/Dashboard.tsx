@@ -3,14 +3,14 @@ import Header from '../Header/Header';
 import Sidemenu from '../Sidemenu/Sidemenu';
 import DashBoardDesk from './DashboardDesk';
 import './Dashboard.scss';
-import IsSearchingProvider from '../../store/SearchingProvider';
+import GeneralCtxProvider from '../../store/GeneralCtxProvider';
 import ThemeContextProvider from '../../store/ThemeContextProvider';
 import themeContext from '../../store/theme-context';
 
 function Dashboard<T>(props: T) {
   const { theme } = useContext(themeContext);
   return (
-    <IsSearchingProvider>
+    <GeneralCtxProvider>
       <ThemeContextProvider>
         <div className='dashboard'>
           <Sidemenu />
@@ -18,7 +18,7 @@ function Dashboard<T>(props: T) {
           <DashBoardDesk />
         </div>
       </ThemeContextProvider>
-    </IsSearchingProvider>
+    </GeneralCtxProvider>
   );
 }
 

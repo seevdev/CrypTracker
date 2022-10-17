@@ -1,10 +1,11 @@
 import React, { useEffect, useState, useCallback, useContext } from 'react';
 import { IconArrowR, IconArrowL } from '../../Utilities/Icons';
 import { Coin } from '../../Utilities/types-general';
-import SearchContext from '../../store/search-context';
+import SearchContext from '../../store/general-context';
 import CoinsAll from './CoinsAll';
 import Pagination from '../UI/Pagination';
 import './DashboardDesk.scss';
+import generalCtx from '../../store/general-context';
 
 function DashBoardDesk<T>(props: T) {
   const [coins, setCoins] = useState<Coin[]>([]);
@@ -14,7 +15,7 @@ function DashBoardDesk<T>(props: T) {
   const [display, setDisplay] = useState<boolean>(false);
 
   const { coinsChangeHandler, isSearching, filteredCoins } =
-    useContext(SearchContext);
+    useContext(generalCtx);
 
   const getCoinsHandler = useCallback(async function () {
     try {

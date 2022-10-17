@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Children, Coin, SearchCtx } from '../Utilities/types-general';
+import { Children, Coin, generalCtxType } from '../Utilities/types-general';
 
-import SearchContext from './search-context';
+import generalCtx from './general-context';
 
-const SearchingProvider = function <T>(props: T & Children) {
+const GeneralCtxProvider = function <T>(props: T & Children) {
   const [isSearching, setIsSearching] = useState(false);
   const [coins, setCoins] = useState<Coin[]>([]);
   const [filteredCoins, setFilteredCoins] = useState<Coin[]>([]);
@@ -26,7 +26,7 @@ const SearchingProvider = function <T>(props: T & Children) {
 
   const onSearch = function (): void {};
 
-  const searchCtx: SearchCtx = {
+  const searchCtx: generalCtxType = {
     coins: coins,
     filteredCoins: filteredCoins,
     isSearching: isSearching,
@@ -36,10 +36,10 @@ const SearchingProvider = function <T>(props: T & Children) {
     coinsChangeHandler: coinsChangeHandler,
   };
   return (
-    <SearchContext.Provider value={searchCtx}>
+    <generalCtx.Provider value={searchCtx}>
       {props.children}
-    </SearchContext.Provider>
+    </generalCtx.Provider>
   );
 };
 
-export default SearchingProvider;
+export default GeneralCtxProvider;
