@@ -7,6 +7,7 @@ import Pagination from '../UI/Pagination';
 import './DashboardDesk.scss';
 import generalCtx from '../../store/general-context';
 
+
 function DashBoardDesk<T>(props: T) {
   const [coins, setCoins] = useState<Coin[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);

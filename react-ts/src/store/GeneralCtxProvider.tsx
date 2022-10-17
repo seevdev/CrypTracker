@@ -7,7 +7,9 @@ const GeneralCtxProvider = function <T>(props: T & Children) {
   const [isSearching, setIsSearching] = useState(false);
   const [coins, setCoins] = useState<Coin[]>([]);
   const [filteredCoins, setFilteredCoins] = useState<Coin[]>([]);
+  const [favCoins, setFavCoins] = useState<Coin[]>([]);
 
+  console.log(favCoins);
   const changeSearching = (setTrue: boolean) => {
     if (setTrue) {
       setIsSearching(true);
@@ -16,14 +18,20 @@ const GeneralCtxProvider = function <T>(props: T & Children) {
     }
   };
 
-  
+  const setFavHandler = (val: Coin[]) => {
+    setFavCoins((prev) => {
+      const prevAndCurrentCoins = [...prev, ...val];
+      const uniqueFavCoins = new Set(prevAndCurrentCoins);
+      return [...uniqueFavCoins];
+    });
+  };
 
   const searchCtx: generalCtxType = {
     coins: coins,
     filteredCoins: filteredCoins,
     isSearching: isSearching,
-    favCoins: [],
-
+    favCoins: favCoins,
+    setFavCoins: setFavHandler,
     changeSearching: changeSearching,
     filteredCoinsChangeHandler: setFilteredCoins,
     coinsChangeHandler: setCoins,

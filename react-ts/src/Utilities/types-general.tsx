@@ -17,10 +17,10 @@ export type generalCtxType = {
   filteredCoins: Coin[];
   favCoins: Coin[];
   isSearching: boolean;
-
   changeSearching: (a: boolean) => void;
   coinsChangeHandler: (val: Coin[]) => void;
   filteredCoinsChangeHandler: (val: Coin[]) => void;
+  setFavCoins: (val: Coin[]) => void;
   value?: any;
 };
 export type CoinName = {

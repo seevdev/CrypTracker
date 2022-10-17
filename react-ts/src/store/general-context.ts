@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext } from 'react';
 import { generalCtxType } from '../Utilities/types-general';
 
 const generalCtx = createContext<generalCtxType>({
@@ -8,9 +8,9 @@ const generalCtx = createContext<generalCtxType>({
   filteredCoins: [
     { id: 0, image: '', name: '', price: 0, priceChangePercentageWeekly: 0 },
   ],
-  favCoins:[{ id: 0, image: '', name: '', price: 0, priceChangePercentageWeekly: 0 }],
+  favCoins: [],
   isSearching: false,
-  
+  setFavCoins: () => {},
   changeSearching: () => {},
   filteredCoinsChangeHandler: () => {},
   coinsChangeHandler: () => {},
