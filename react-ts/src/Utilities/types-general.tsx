@@ -26,3 +26,12 @@ export type generalCtxType = {
 export type CoinName = {
   name: string;
 };
+
+export type AddInfo = {
+  name: string;
+  price: number;
+  price14Days: number;
+  price30Days: number;
+  price60Days: number;
+  total: number;
+};

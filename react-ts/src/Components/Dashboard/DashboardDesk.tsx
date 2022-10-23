@@ -1,12 +1,10 @@
 import React, { useEffect, useState, useCallback, useContext } from 'react';
 import { IconArrowR, IconArrowL } from '../../Utilities/Icons';
 import { Coin } from '../../Utilities/types-general';
-import SearchContext from '../../store/general-context';
 import CoinsAll from './CoinsAll';
 import Pagination from '../UI/Pagination';
 import './DashboardDesk.scss';
 import generalCtx from '../../store/general-context';
-
 
 function DashBoardDesk<T>(props: T) {
   const [coins, setCoins] = useState<Coin[]>([]);
@@ -28,7 +26,7 @@ function DashBoardDesk<T>(props: T) {
       }
       const data = await response.json();
 
-      const dataRestructured: Coin[] = data.map((item: any) => {
+      const coinData: Coin[] = data.map((item: any) => {
         let coin;
         return (coin = {
           id: item.id,
@@ -37,9 +35,15 @@ function DashBoardDesk<T>(props: T) {
           price: item.market_data.current_price.usd,
           priceChangePercentageWeekly:
             item.market_data.price_change_percentage_7d,
+          price14Days: item.market_data.price_change_percentage_24h,
+          price30Days: item.market_data.price_change_percentage_30d,
+          price60Days: item.market_data.price_change_percentage_60d,
+          total: item.market_data.total_volume.usd,
         });
       });
-      setCoins(dataRestructured);
+
+      setCoins(coinData);
+
       setIsLoading(false);
     } catch (e) {
       console.log(e.message);
@@ -57,6 +61,7 @@ function DashBoardDesk<T>(props: T) {
   const paginateHandler = (n: number) => {
     setCurrentPage(n);
   };
+
   // Get currrent coins
   const indexOfLastCoin = currentPage * coinsPerPage;
   const indexOfFirstCoin = indexOfLastCoin - coinsPerPage;
