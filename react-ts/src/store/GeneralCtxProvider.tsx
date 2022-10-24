@@ -9,7 +9,7 @@ const GeneralCtxProvider = function <T>(props: T & Children) {
   const [filteredCoins, setFilteredCoins] = useState<Coin[]>([]);
   const [favCoins, setFavCoins] = useState<Coin[]>([]);
 
-  console.log(favCoins);
+  
   const changeSearching = (setTrue: boolean) => {
     if (setTrue) {
       setIsSearching(true);

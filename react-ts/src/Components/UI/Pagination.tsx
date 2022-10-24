@@ -17,7 +17,7 @@ const Pagination = function <T>({
   paginate,
   currentPage,
 }: T & PaginationProps) {
-  const [buttonClicked, setButtonClicked] = useState<boolean>(false);
+ 
   const numberOfPages = [];
 
   const onBtnHandler = (num: number) => {

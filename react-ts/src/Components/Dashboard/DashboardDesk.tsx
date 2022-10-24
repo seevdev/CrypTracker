@@ -3,8 +3,8 @@ import { IconArrowR, IconArrowL } from '../../Utilities/Icons';
 import { Coin } from '../../Utilities/types-general';
 import CoinsAll from './CoinsAll';
 import Pagination from '../UI/Pagination';
-import './DashboardDesk.scss';
 import generalCtx from '../../store/general-context';
+import './DashboardDesk.scss';
 
 function DashBoardDesk<T>(props: T) {
   const [coins, setCoins] = useState<Coin[]>([]);
@@ -12,6 +12,7 @@ function DashBoardDesk<T>(props: T) {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [coinsPerPage, setCoinsPerPage] = useState<number>(9);
   const [display, setDisplay] = useState<boolean>(false);
+  const [currentCoins, setCurrentCoins] = useState<Coin[]>([]);
 
   const { coinsChangeHandler, isSearching, filteredCoins } =
     useContext(generalCtx);
@@ -62,12 +63,22 @@ function DashBoardDesk<T>(props: T) {
     setCurrentPage(n);
   };
 
-  // Get currrent coins
-  const indexOfLastCoin = currentPage * coinsPerPage;
-  const indexOfFirstCoin = indexOfLastCoin - coinsPerPage;
-  let currentCoins = isSearching
-    ? filteredCoins.slice(indexOfFirstCoin, indexOfLastCoin)
-    : coins.slice(indexOfFirstCoin, indexOfLastCoin);
+  useEffect(() => {
+    const indexOfLastCoin = currentPage * coinsPerPage;
+    const indexOfFirstCoin = indexOfLastCoin - coinsPerPage;
+
+    if (!isSearching && coins.length > coinsPerPage) {
+      setCurrentCoins([...coins.slice(indexOfFirstCoin, indexOfLastCoin)]);
+    } else if (!isSearching && coins.length <= coinsPerPage) {
+      setCurrentCoins([...coins]);
+    } else if (isSearching && filteredCoins.length > coinsPerPage) {
+      setCurrentCoins([
+        ...filteredCoins.slice(indexOfFirstCoin, indexOfLastCoin),
+      ]);
+    } else if (isSearching && filteredCoins.length <= coinsPerPage) {
+      setCurrentCoins([...filteredCoins]);
+    }
+  }, [coins, filteredCoins, isSearching, currentPage]);
 
   useEffect(() => {
     if (

@@ -1,11 +1,10 @@
 import React, { useContext } from 'react';
 import generalCtx from '../../../store/general-context';
 import Button from '../../UI/Button';
-import Modal from '../../UI/Modal';
 import './InfoMenu.scss';
 
 const InfoMenu = (props: any) => {
-  
+
   const { coins, setFavCoins } = useContext(generalCtx);
 
   const addToFavHandler = () => {

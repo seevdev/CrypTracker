@@ -19,12 +19,16 @@ const NavSearch = () => {
     } else {
       changeSearching(false);
     }
-    const results = coins.filter((coin) =>
-      coin.name.toLowerCase().includes(inputValue.toLocaleLowerCase())
-    );
+   
+    const results = [
+      ...coins.filter((coin) =>
+        coin.name.toLowerCase().includes(inputValue.toLowerCase())
+      ),
+    ];
+
 
     filteredCoinsChangeHandler([...results]);
-  }, [inputValue]);
+  }, [inputValue,coins]);
 
   return (
     <div className='nav-search'>
