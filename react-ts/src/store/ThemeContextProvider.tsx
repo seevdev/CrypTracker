@@ -4,9 +4,8 @@ import themeContext from './theme-context';
 
 const usersTheme = window.localStorage.getItem('theme') || 'dark';
 
-
 const ThemeContextProvider = (props: any) => {
-  const [theme, setTheme] = useState<string>('usersTheme');
+  const [theme, setTheme] = useState<string>(usersTheme);
 
   return (
     <themeContext.Provider value={{ theme, setTheme }}>

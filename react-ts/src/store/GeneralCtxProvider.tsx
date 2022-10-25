@@ -3,13 +3,15 @@ import { Children, Coin, generalCtxType } from '../Utilities/types-general';
 
 import generalCtx from './general-context';
 
+let favCoinsCash =
+  JSON.parse(window.localStorage.getItem('favCoins')!) || [];
+
 const GeneralCtxProvider = function <T>(props: T & Children) {
   const [isSearching, setIsSearching] = useState(false);
   const [coins, setCoins] = useState<Coin[]>([]);
   const [filteredCoins, setFilteredCoins] = useState<Coin[]>([]);
-  const [favCoins, setFavCoins] = useState<Coin[]>([]);
+  const [favCoins, setFavCoins] = useState<Coin[]>(favCoinsCash);
 
-  
   const changeSearching = (setTrue: boolean) => {
     if (setTrue) {
       setIsSearching(true);
@@ -18,9 +20,9 @@ const GeneralCtxProvider = function <T>(props: T & Children) {
     }
   };
 
-  const setFavHandler = (val: Coin[]) => {
+  const setFavHandler = (val: Coin) => {
     setFavCoins((prev) => {
-      const prevAndCurrentCoins = [...prev, ...val];
+      const prevAndCurrentCoins = [...prev, val];
       const uniqueFavCoins = new Set(prevAndCurrentCoins);
       return [...uniqueFavCoins];
     });
@@ -30,7 +32,7 @@ const GeneralCtxProvider = function <T>(props: T & Children) {
     coins: coins,
     filteredCoins: filteredCoins,
     isSearching: isSearching,
-    favCoins: favCoins,
+    favCoins: favCoins,   
     setFavCoins: setFavHandler,
     changeSearching: changeSearching,
     filteredCoinsChangeHandler: setFilteredCoins,

@@ -1,17 +1,21 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import './NavBar.scss';
 import { IconTheme } from '../../../Utilities/Icons';
 import NavBarGreeting from './NavBarGreeing';
 import NavSearch from './NavSearch';
 import themeContext from '../../../store/theme-context';
 
-
 const NavBar = (props: any) => {
-  const { setTheme, theme } = useContext(themeContext);
+  const { theme, setTheme } = useContext(themeContext);
   const onClickHandler = () => {
     const defaultTheme = 'dark';
     theme === defaultTheme ? setTheme('light') : setTheme('dark');
   };
+  
+  useEffect(() => {
+    window.localStorage.setItem('theme', theme);
+  }, [theme]);
+
   return (
     <nav className='nav-bar'>
       <NavBarGreeting />

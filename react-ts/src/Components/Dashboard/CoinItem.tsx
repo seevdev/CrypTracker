@@ -7,6 +7,7 @@ import Button from '../UI/Button';
 import './CoinItem.scss';
 
 function CoinItem(props: Coin & AddInfo) {
+  
   const [infoMenuOpen, setInfoMenuOpen] = useState(false);
   const [statsMenuOpen, setStatsMenuOpen] = useState(false);
 
@@ -21,6 +22,7 @@ function CoinItem(props: Coin & AddInfo) {
   };
 
   const price = `$${Math.trunc(props.price).toLocaleString('en-US')}`;
+
   let icon = IconMenu;
   if (infoMenuOpen) {
     icon = IconClose;
