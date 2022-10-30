@@ -5,7 +5,7 @@ import './NavSearch.scss';
 
 const NavSearch = () => {
   const [inputValue, setInputValue] = useState('');
-  const { changeSearching, coins, filteredCoinsChangeHandler } =
+  const { setSearchingHandler, coins, filteredCoinsChangeHandler } =
     useContext(generalCtx);
 
   const searchHandler = (e: ChangeEvent) => {
@@ -15,9 +15,9 @@ const NavSearch = () => {
 
   useEffect(() => {
     if (inputValue.trim().length > 0) {
-      changeSearching(true);
+      setSearchingHandler(true);
     } else {
-      changeSearching(false);
+      setSearchingHandler(false);
     }
    
     const results = [

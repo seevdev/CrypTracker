@@ -1,22 +1,24 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import generalCtx from '../../../store/general-context';
+import useFetch from '../../../Hooks/useFetch';
 import Button from '../../UI/Button';
 import './InfoMenu.scss';
 
-
 const InfoMenu = (props: any) => {
   
-  const { coins, setFavCoins, favCoins } = useContext(generalCtx);
+  const [statsBtnClicked, setStatsBtnClicked] = useState(false);
+
+  const { coins, favCoins, setFavCoins } = useContext(generalCtx);
 
   const addToFavHandler = () => {
     const [favCoin] = [...coins.filter((coin) => coin.id === props.id)];
-    setFavCoins(favCoin);
+    const containsCoin = favCoins.some((current) => favCoin.id === current.id);
+    containsCoin || setFavCoins(favCoin);
   };
 
   useEffect(() => {
     window.localStorage.setItem('favCoins', JSON.stringify(favCoins));
-  }, [favCoins, favCoins]);
-
+  }, [favCoins]);
 
   const statsMenuHandler = (value: boolean) => {
     props.onStatsMenu(value);
@@ -30,7 +32,6 @@ const InfoMenu = (props: any) => {
       <div
         onClick={() => {
           infoMenuHandler(false);
-          console.log('clicked');
         }}
         className='info-backdrop'
       ></div>
@@ -50,6 +51,7 @@ const InfoMenu = (props: any) => {
             onClick={() => {
               statsMenuHandler(true);
               infoMenuHandler(false);
+              setStatsBtnClicked(true);
             }}
           >
             More Info

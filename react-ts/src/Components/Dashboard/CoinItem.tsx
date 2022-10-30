@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Coin, AddInfo } from '../../Utilities/types-general';
 import { IconMenu, IconClose } from '../../Utilities/Icons';
+
 import InfoMenu from './Info/InfoMenu';
 import MoreInfo from './Info/MoreInfo';
 import Button from '../UI/Button';
@@ -14,6 +15,7 @@ function CoinItem(props: Coin & AddInfo) {
   const infoMenuToggle = () => {
     setInfoMenuOpen((prev) => !prev);
   };
+  
   const infoMenuOpenhandler = (value: boolean) => {
     setInfoMenuOpen(value);
   };

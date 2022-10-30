@@ -1,63 +1,27 @@
 import React, { useEffect, useState, useCallback, useContext } from 'react';
 import { IconArrowR, IconArrowL } from '../../Utilities/Icons';
-import { Coin } from '../../Utilities/types-general';
+import { Coin} from '../../Utilities/types-general';
 import CoinsAll from './CoinsAll';
 import Pagination from '../UI/Pagination';
 import generalCtx from '../../store/general-context';
+import useFetch from '../../Hooks/useFetch';
 import './DashboardDesk.scss';
 
+const API_URL = 'https://api.coingecko.com/api/v3/coins';
+
 function DashBoardDesk<T>(props: T) {
-  const [coins, setCoins] = useState<Coin[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [coinsPerPage, setCoinsPerPage] = useState<number>(9);
   const [display, setDisplay] = useState<boolean>(false);
   const [currentCoins, setCurrentCoins] = useState<Coin[]>([]);
-
-  const { coinsChangeHandler, isSearching, filteredCoins } =
+  const { coinsChangeHandler, isSearching, filteredCoins, isLoading, coins } =
     useContext(generalCtx);
 
-  const getCoinsHandler = useCallback(async function () {
-    try {
-      setIsLoading(true);
-      const response = await fetch('https://api.coingecko.com/api/v3/coins');
+  useFetch(API_URL);
 
-      if (!response.ok) {
-        throw new Error('Something went wrong..');
-      }
-      const data = await response.json();
-
-      const coinData: Coin[] = data.map((item: any) => {
-        let coin;
-        return (coin = {
-          id: item.id,
-          image: item.image.large,
-          name: item.name,
-          price: item.market_data.current_price.usd,
-          priceChangePercentageWeekly:
-            item.market_data.price_change_percentage_7d,
-          price14Days: item.market_data.price_change_percentage_24h,
-          price30Days: item.market_data.price_change_percentage_30d,
-          price60Days: item.market_data.price_change_percentage_60d,
-          total: item.market_data.total_volume.usd,
-        });
-      });
-
-      setCoins(coinData);
-
-      setIsLoading(false);
-    } catch (e) {
-      console.log(e.message);
-    }
-  }, []);
-
-  useEffect(() => {
-    getCoinsHandler();
-  }, [getCoinsHandler]);
-
-  useEffect(() => {
-    coinsChangeHandler(coins);
-  }, [coins]);
+  // useEffect(() => {
+  //   coinsChangeHandler(coins);
+  // }, [coins]);
 
   const paginateHandler = (n: number) => {
     setCurrentPage(n);
