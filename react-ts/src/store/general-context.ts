@@ -3,10 +3,32 @@ import { generalCtxType } from '../Utilities/types-general';
 
 const generalCtx = createContext<generalCtxType>({
   coins: [
-    { id: 0, image: '', name: '', price: 0, priceChangePercentageWeekly: 0 },
+    {
+      id: '',
+      image: '',
+      name: '',
+      price: 0,
+      priceChangePercentageWeekly: 0,
+      price14Days: 0,
+      price30Days: 0,
+      price60Days: 0,
+      total: 0,
+      time: 0,
+    },
   ],
   filteredCoins: [
-    { id: 0, image: '', name: '', price: 0, priceChangePercentageWeekly: 0 },
+    {
+      id: '',
+      image: '',
+      name: '',
+      price: 0,
+      priceChangePercentageWeekly: 0,
+      price14Days: 0,
+      price30Days: 0,
+      price60Days: 0,
+      total: 0,
+      time: 0,
+    },
   ],
   favCoins: [],
   isSearching: false,

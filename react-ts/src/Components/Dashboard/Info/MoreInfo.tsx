@@ -1,9 +1,10 @@
 import React from 'react';
 import { DivProps } from 'react-html-props';
-import { AddInfo } from '../../../Utilities/types-general';
+import { Coin } from '../../../Utilities/types-general';
 import Modal from '../../UI/Modal';
+import './MoreInfo.scss'
 
-const MoreInfo = (props: AddInfo & DivProps) => {
+const MoreInfo = (props: Coin & DivProps) => {
   return (
     <Modal onClick={props.onClick}>
       <div>
@@ -19,6 +20,8 @@ const MoreInfo = (props: AddInfo & DivProps) => {
           <span>{props.price60Days}</span>
           <span>Total</span>
           <span>{props.total}</span>
+          <span>Time</span>
+          <span>{new Date().getTime() - props.time}</span>
         </div>
       </div>
     </Modal>

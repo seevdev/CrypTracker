@@ -1,13 +1,12 @@
 import React, { useEffect, useState, useCallback, useContext } from 'react';
 import { IconArrowR, IconArrowL } from '../../Utilities/Icons';
-import { Coin} from '../../Utilities/types-general';
+import { Coin } from '../../Utilities/types-general';
 import CoinsAll from './CoinsAll';
 import Pagination from '../UI/Pagination';
 import generalCtx from '../../store/general-context';
 import useFetch from '../../Hooks/useFetch';
 import './DashboardDesk.scss';
-
-const API_URL = 'https://api.coingecko.com/api/v3/coins';
+import fetchCtx from '../../store/fetch-context';
 
 function DashBoardDesk<T>(props: T) {
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -16,12 +15,11 @@ function DashBoardDesk<T>(props: T) {
   const [currentCoins, setCurrentCoins] = useState<Coin[]>([]);
   const { coinsChangeHandler, isSearching, filteredCoins, isLoading, coins } =
     useContext(generalCtx);
+  const { updateAllCoins } = useContext(fetchCtx);
 
-  useFetch(API_URL);
-
-  // useEffect(() => {
-  //   coinsChangeHandler(coins);
-  // }, [coins]);
+  useEffect(() => {
+    updateAllCoins();
+  }, []);
 
   const paginateHandler = (n: number) => {
     setCurrentPage(n);

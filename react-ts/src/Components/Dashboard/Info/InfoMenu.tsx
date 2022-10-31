@@ -1,14 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import generalCtx from '../../../store/general-context';
-import useFetch from '../../../Hooks/useFetch';
 import Button from '../../UI/Button';
 import './InfoMenu.scss';
+import fetchCtx from '../../../store/fetch-context';
 
 const InfoMenu = (props: any) => {
-  
-  const [statsBtnClicked, setStatsBtnClicked] = useState(false);
-
   const { coins, favCoins, setFavCoins } = useContext(generalCtx);
+  const { updateCoin, setTimeDiffGreaterHandler } = useContext(fetchCtx);
 
   const addToFavHandler = () => {
     const [favCoin] = [...coins.filter((coin) => coin.id === props.id)];
@@ -25,6 +23,19 @@ const InfoMenu = (props: any) => {
   };
   const infoMenuHandler = (value: boolean) => {
     props.onInfoMenuOpen(value);
+  };
+
+  const onMoreInfoBtnHandler = () => {
+    statsMenuHandler(true);
+    infoMenuHandler(false);
+
+    const [currentCoin] = coins.filter((curr) => curr.id === props.id);
+
+    if (new Date().getTime() - currentCoin.time > 60 * 2 * 1000) {
+      setTimeDiffGreaterHandler(true);
+      updateCoin(props.id);
+      console.log('updated');
+    }
   };
 
   return (
@@ -49,9 +60,7 @@ const InfoMenu = (props: any) => {
         <span>
           <Button
             onClick={() => {
-              statsMenuHandler(true);
-              infoMenuHandler(false);
-              setStatsBtnClicked(true);
+              onMoreInfoBtnHandler();
             }}
           >
             More Info

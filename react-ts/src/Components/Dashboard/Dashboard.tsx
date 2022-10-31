@@ -5,17 +5,20 @@ import DashBoardDesk from './DashboardDesk';
 import './Dashboard.scss';
 import GeneralCtxProvider from '../../store/GeneralCtxProvider';
 import ThemeContextProvider from '../../store/ThemeContextProvider';
+import FetchCtxtProvider from '../../store/FetchCtxPtovider';
 
 function Dashboard<T>(props: T) {
   return (
     <GeneralCtxProvider>
-      <ThemeContextProvider>
-        <div className='dashboard'>
-          <Sidemenu />
-          <Header />
-          <DashBoardDesk />
-        </div>
-      </ThemeContextProvider>
+      <FetchCtxtProvider>
+        <ThemeContextProvider>
+          <div className='dashboard'>
+            <Sidemenu />
+            <Header />
+            <DashBoardDesk />
+          </div>
+        </ThemeContextProvider>
+      </FetchCtxtProvider>
     </GeneralCtxProvider>
   );
 }

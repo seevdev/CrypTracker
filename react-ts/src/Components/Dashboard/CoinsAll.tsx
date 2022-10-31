@@ -18,6 +18,7 @@ const CoinsAll = function ({ currentCoins }: any) {
             price30Days={coin.price30Days}
             price60Days={coin.price60Days}
             total={coin.total}
+            time={coin.time}
           />
         );
       })}
