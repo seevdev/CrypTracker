@@ -30,7 +30,7 @@ const FetchCtxtProvider = function <T>(props: T & Children) {
   const setTimeDiffGreaterHandler = (val: boolean) => {
     setTimeDiffGreater(val);
   };
-  
+
   const dataFormatter = function (
     data: Data.RootObject | Data.RootObject[]
   ): Coin[] {
@@ -84,20 +84,20 @@ const FetchCtxtProvider = function <T>(props: T & Children) {
 
   const fetchCoins = useCallback(
     async (url: string) => {
-      // setIsLoadingHandler(true);
-
+      
+      setIsLoadingHandler(true); 
       let response = await fetch(url);
-
+      
       const data = await response.json();
-      // setIsLoadingHandler(false);
+      setIsLoadingHandler(false);
       return dataFormatter(data);
     },
     [coins]
-  );
-
-  const updateAllCoins = () => {
-    fetchCoins(API_URL).then((res) => setCoins(res));
-   
+    );
+    
+    const updateAllCoins = () => {
+      fetchCoins(API_URL).then((res) => setCoins(res));
+      
   };
 
   const updateCoin = (id: string = '') => {

@@ -1,0 +1,26 @@
+.FavCoin {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  font-size: 18px;
+  box-shadow: rgba(0, 0, 0, 0.255) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  padding: 2.4rem;
+  border-radius: 9px;
+  img {
+    width: 32px;
+    height: 32px;
+  }
+  .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3.2rem;
+  }
+  .fav-coin--graph{
+    margin-right: 9.6rem;
+    border: 1px solid red;
+    width: 32px;
+    height: 100%
+  }
+}

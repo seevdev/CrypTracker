@@ -7,7 +7,7 @@ import themeContext from '../../../store/theme-context';
 import Button from '../../UI/Button';
 import fetchCtx from '../../../store/fetch-context';
 
-const NavBar = (props: any) => {
+const NavBar = (props: any):JSX.Element => {
   const { theme, setTheme } = useContext(themeContext);
   const { updateAllCoins } = useContext(fetchCtx);
   const onClickHandler = () => {

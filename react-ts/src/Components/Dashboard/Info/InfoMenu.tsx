@@ -11,7 +11,9 @@ const InfoMenu = (props: any) => {
   const addToFavHandler = () => {
     const [favCoin] = [...coins.filter((coin) => coin.id === props.id)];
     const containsCoin = favCoins.some((current) => favCoin.id === current.id);
-    containsCoin || setFavCoins(favCoin);
+    const favCoinsArr = [favCoin];
+    console.log(favCoinsArr);
+    containsCoin || setFavCoins(favCoinsArr);
   };
 
   useEffect(() => {

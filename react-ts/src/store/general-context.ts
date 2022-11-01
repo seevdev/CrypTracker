@@ -1,4 +1,5 @@
 import React, { createContext } from 'react';
+import { Coin } from '../Utilities/types-general';
 import { generalCtxType } from '../Utilities/types-general';
 
 const generalCtx = createContext<generalCtxType>({
@@ -37,7 +38,7 @@ const generalCtx = createContext<generalCtxType>({
   setStatsBtnHandler: () => {},
   setCoinsHandler: () => {},
   setIsLoadingHandler: () => {},
-  setFavCoins: () => {},
+  setFavCoins: (val:Coin[]) => {},
   setSearchingHandler: () => {},
   filteredCoinsChangeHandler: () => {},
   coinsChangeHandler: () => {},

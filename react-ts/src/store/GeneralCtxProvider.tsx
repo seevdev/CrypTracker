@@ -21,8 +21,8 @@ const GeneralCtxProvider = function <T>(props: T & Children) {
     }
   };
 
-  const setFavHandler = (val: Coin) => {
-    setFavCoins((prev) => [...prev, val]);
+  const setFavHandler = (val: Coin[]) => {
+    setFavCoins(val);
   };
 
   const setCoinsHandler = (val: Coin[]) => {
@@ -43,7 +43,7 @@ const GeneralCtxProvider = function <T>(props: T & Children) {
     favCoins: favCoins,
     isLoading: isLoading,
     statsBtnClicked: statsBtnClicked,
-    setStatsBtnHandler:setStatsBtnHandler,
+    setStatsBtnHandler: setStatsBtnHandler,
     setIsLoadingHandler: setIsLoadingHandler,
     setCoinsHandler: setCoinsHandler,
     setFavCoins: setFavHandler,
