@@ -1,0 +1,36 @@
+@import '/src/Utilities/Variables';
+.CoinTop {
+  font-size: 1.4rem;
+  display: grid;
+  flex-flow: row;
+  grid-template-columns: 50% 1fr 1fr;
+  justify-items: center;
+  align-items: center; 
+  border-bottom: 1px solid #000;
+  padding: 0.6rem 1.2rem;
+width: 100%;
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .flex-column {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+  }
+  .flex-row {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  img {
+    width: 24px;
+    height: 24px;
+  }
+  .coin-top--graph {
+    width: 32px;
+    height: 32px;
+   
+  }
+}

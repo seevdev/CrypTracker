@@ -6,8 +6,8 @@ import FavCoinsLayout from './Components/FavouriteCoins/FavCoinsLayout/FavCoinsL
 function App() {
   return (
     <div className={classes.app}>
-      {/* <Dashboard /> */}
-      <FavCoinsLayout />
+      <Dashboard />
+      {/* <FavCoinsLayout /> */}
     </div>
   );
 }

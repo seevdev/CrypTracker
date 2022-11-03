@@ -4,7 +4,6 @@ export type Children = {
 
 export type Coin = {
   image: string;
-  priceChangePercentageWeekly: number;
   name: string;
   id:  string;
   currentCoins?: any;
@@ -12,6 +11,8 @@ export type Coin = {
   price14Days: number;
   price30Days: number;
   price60Days: number;
+  priceChangePercentageWeekly: number;
+  high24h: number;
   total: number;
   time:number
   children?: React.ReactNode;
@@ -1164,3 +1165,5 @@ export declare module Data {
     localization: Localization;
   }
 }
+
+

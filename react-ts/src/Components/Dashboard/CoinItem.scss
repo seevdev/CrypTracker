@@ -4,7 +4,7 @@
   position: relative;
 
   @include themify($themes) {
-    background-color: themed('baseColor');
+    background-color: themed('coinColor');
     color: themed('textColor');
   }
   display: flex;

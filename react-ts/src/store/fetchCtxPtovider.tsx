@@ -15,16 +15,16 @@ const FetchCtxtProvider = function <T>(props: T & Children) {
     price14Days: 0,
     price30Days: 0,
     price60Days: 0,
+    high24h: 0,
     total: 0,
     time: 0,
   });
   const [timeDiffGreater, setTimeDiffGreater] = useState(false);
+  const [topCoins, setTopCoins] = useState<Coin[]>([]);
 
   const { coins, setIsLoadingHandler, setCoinsHandler, statsBtnClicked } =
     useContext(generalCtx);
-  useEffect(() => {
-    console.log(updatedCoin);
-  }, [updatedCoin]);
+
   const API_URL = 'https://api.coingecko.com/api/v3/coins';
 
   const setTimeDiffGreaterHandler = (val: boolean) => {
@@ -46,6 +46,7 @@ const FetchCtxtProvider = function <T>(props: T & Children) {
           price14Days: item.market_data.price_change_percentage_24h,
           price30Days: item.market_data.price_change_percentage_30d,
           price60Days: item.market_data.price_change_percentage_60d,
+          high24h: item.market_data.high_24h.usd,
           total: item.market_data.total_volume.usd,
           time: new Date().getTime(),
         };
@@ -66,6 +67,8 @@ const FetchCtxtProvider = function <T>(props: T & Children) {
           price14Days: data.market_data.price_change_percentage_24h,
           price30Days: data.market_data.price_change_percentage_30d,
           price60Days: data.market_data.price_change_percentage_60d,
+          high24h: data.market_data.high_24h.usd,
+
           total: data.market_data.total_volume.usd,
           time: new Date().getTime(),
         },
@@ -73,31 +76,42 @@ const FetchCtxtProvider = function <T>(props: T & Children) {
     }
   };
 
+  // const error = (): Error => {
+  //   return new Error('Something went wrong');
+  // };
+
   const setCoins = (data: any) => {
     setCoinsHandler(data);
     window.localStorage.setItem('coins', JSON.stringify(data));
   };
 
-  const error = (): Error => {
-    return new Error('Something went wrong');
-  };
-
   const fetchCoins = useCallback(
     async (url: string) => {
-      
-      setIsLoadingHandler(true); 
       let response = await fetch(url);
-      
       const data = await response.json();
-      setIsLoadingHandler(false);
       return dataFormatter(data);
     },
     [coins]
-    );
-    
-    const updateAllCoins = () => {
-      fetchCoins(API_URL).then((res) => setCoins(res));
-      
+  );
+
+  const updateAllCoins = () => {
+    setIsLoadingHandler(true);
+    fetchCoins(API_URL).then((res) => {
+      setCoins(res);
+      let topArr: Coin[] = [];
+      let coinsAll = [...res];
+      let priceArr = coinsAll.map((coin) => coin.price);
+
+      for (let i = 0; topArr.length < 5; i++) {
+        let maxPrice = Math.max(...priceArr);
+        let [topCoin] = coinsAll.filter((coin) => coin.price === maxPrice);
+        topArr.push(topCoin);
+        coinsAll = [...coinsAll.filter((coin) => coin !== topCoin)];
+        priceArr = [...priceArr.filter((price) => price !== topCoin.price)];
+      }
+      setIsLoadingHandler(false);
+      setTopCoins(topArr);
+    });
   };
 
   const updateCoin = (id: string = '') => {
@@ -126,6 +140,7 @@ const FetchCtxtProvider = function <T>(props: T & Children) {
     setTimeDiffGreaterHandler: setTimeDiffGreaterHandler,
     updatedCoin: updatedCoin,
     timeDiffGreater: timeDiffGreater,
+    topCoins: topCoins,
   };
   return (
     <fetchCtx.Provider value={contextValue}>{props.children}</fetchCtx.Provider>

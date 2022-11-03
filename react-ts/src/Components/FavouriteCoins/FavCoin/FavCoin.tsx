@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+
 import { Coin } from '../../../Utilities/types-general';
 import generalCtx from '../../../store/general-context';
 import Button from '../../UI/Button';

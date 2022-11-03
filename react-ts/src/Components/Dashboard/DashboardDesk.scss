@@ -8,11 +8,11 @@
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
-
   border-radius: $bradius-l;
   height: 85vh;
   margin-top: -1.2rem;
-  padding: calc($unit-m * 2) calc($unit-m * 4);
+  // padding: calc($unit-m * 2) calc($unit-m * 4);
+
 
   h2 {
     margin-top: 2rem;
@@ -27,6 +27,7 @@
     @include flex-center;
     gap: calc($unit-m);
     height: 100%;
+    grid-row: 1 / span 2;
   }
   .graph {
     width: 300px;
@@ -34,7 +35,9 @@
     border: 1px solid red;
   }
   .container {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     justify-content: space-between;
     width: 100%;
     height: 100%;
@@ -51,5 +54,19 @@
   .icon {
     width: 24px;
     height: 24px;
+  }
+
+  .topfive-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    @include themify($themes) {
+      background-color: themed('coinColor');
+      color: themed('textColor');
+    }
+    border-radius: 11px;
+    margin-top: -6rem;
+    height: min-content;
+    width: 45rem;
   }
 }

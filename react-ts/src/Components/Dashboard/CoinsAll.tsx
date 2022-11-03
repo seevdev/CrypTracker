@@ -17,6 +17,7 @@ const CoinsAll = function ({ currentCoins }: any) {
             price14Days={coin.price14Days}
             price30Days={coin.price30Days}
             price60Days={coin.price60Days}
+            high24h = {coin.high24h}
             total={coin.total}
             time={coin.time}
           />

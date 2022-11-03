@@ -7,15 +7,23 @@ import generalCtx from '../../store/general-context';
 import useFetch from '../../Hooks/useFetch';
 import './DashboardDesk.scss';
 import fetchCtx from '../../store/fetch-context';
+import Chart from 'chart.js/auto';
+import { CategoryScale } from 'chart.js';
+
+import BubbleChart from '../UI/ChartComponents/BubbleChart';
+import CoinTop from './CoinTop/CoinTop';
+
+Chart.register(CategoryScale);
 
 function DashBoardDesk<T>(props: T) {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [coinsPerPage, setCoinsPerPage] = useState<number>(9);
   const [display, setDisplay] = useState<boolean>(false);
   const [currentCoins, setCurrentCoins] = useState<Coin[]>([]);
-  const { coinsChangeHandler, isSearching, filteredCoins, isLoading, coins } =
+
+  const { setCoinsHandler, isSearching, filteredCoins, isLoading, coins } =
     useContext(generalCtx);
-  const { updateAllCoins } = useContext(fetchCtx);
+  const { updateAllCoins, topCoins } = useContext(fetchCtx);
 
   useEffect(() => {
     updateAllCoins();
@@ -52,6 +60,54 @@ function DashBoardDesk<T>(props: T) {
       setDisplay(false);
     }
   }, [isSearching, filteredCoins, coins]);
+
+  const topCoinsHard = [
+    {
+      id: 'bitcoin',
+      name: 'Bitcoin',
+      symbol: 'BTC',
+      image:
+        'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+      price: 20555,
+      changePercent: 2.58,
+    },
+    {
+      id: 'bitcoin',
+      name: 'Bitcoin',
+      symbol: 'BTC',
+      image:
+        'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+      price: 20555,
+      changePercent: -25.8,
+    },
+    {
+      id: 'bitcoin',
+      name: 'Bitcoin',
+      symbol: 'BTC',
+      image:
+        'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+      price: 20555,
+      changePercent: 0.48,
+    },
+    {
+      id: 'bitcoin',
+      name: 'hhhh',
+      symbol: 'BTC',
+      image:
+        'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+      price: 20555,
+      changePercent: -0.25,
+    },
+    {
+      id: 'bitcoin',
+      name: 'Bitcoin',
+      symbol: 'BTC',
+      image:
+        'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+      price: 20555,
+      changePercent: 32.5,
+    },
+  ];
 
   return (
     <div className='dashboard-container'>
@@ -93,7 +149,22 @@ function DashBoardDesk<T>(props: T) {
             />
           )}
         </div>
-        <div className='graph'></div>
+        <div>Chart</div>
+        <div className='topfive-container'>
+          {topCoins[0] !== undefined &&
+            topCoins.map((topCoin, index) => {
+              return (
+                <CoinTop
+                  price={`$${Math.floor(topCoin.price).toLocaleString('us')}`}
+                  number={index + 1}
+                  name={topCoin.name}
+                  image={topCoin.image}
+                  symbol={'BTS'}
+                  changePercent={topCoin.priceChangePercentageWeekly}
+                />
+              );
+            })}
+        </div>
       </div>
     </div>
   );

@@ -2,9 +2,7 @@
 
 .icon {
   width: 24px;
-  height: 24px;
-
-  
+  height: 24px; 
 
   &.icon-arrow {
     @include themify($themes) {
@@ -33,4 +31,12 @@
   &:hover{
     background-color: #22c55e;
   }
+
+}
+
+.icon-arrow-down{
+  color: red;
+}
+.icon-arrow-up{
+  color: green;
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Coin } from '../Utilities/types-general';
 
 const fetchCtx = React.createContext({
   updatedCoin: {
@@ -11,6 +10,7 @@ const fetchCtx = React.createContext({
     price14Days: 0,
     price30Days: 0,
     price60Days: 0,
+    high24h: 0,
     total: 0,
     time: 0,
   },
@@ -18,6 +18,21 @@ const fetchCtx = React.createContext({
   updateAllCoins: () => {},
   updateCoin: (id: string) => {},
   setTimeDiffGreaterHandler: (val: boolean) => {},
+  topCoins: [
+    {
+      id: '',
+      image: '',
+      name: '',
+      price: 0,
+      priceChangePercentageWeekly: 0,
+      price14Days: 0,
+      price30Days: 0,
+      price60Days: 0,
+      high24h: 0,
+      total: 0,
+      time: 0,
+    },
+  ],
 });
 
 export default fetchCtx;
