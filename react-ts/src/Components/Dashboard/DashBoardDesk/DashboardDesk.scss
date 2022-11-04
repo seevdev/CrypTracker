@@ -56,11 +56,7 @@
     width: 100%;
   }
   .chart {
-    width: 85%;
-
-    // box-shadow: rgba(0, 0, 0, 0.132) 0px 15px 15px,
-    //   rgba(0, 0, 0, 0.071) 0px 5px 8px;
-    border-radius: 11px;
+    width: 90%;
   }
   .coins-top {
     justify-self: start;
@@ -84,8 +80,8 @@
 
   .loading {
     width: 50%;
-    
     font-size: 2.4rem;
+    margin: 0 auto;
   }
   .pagination-box {
     align-self: center;
@@ -95,7 +91,6 @@
     align-self: center;
     justify-self: start;
     margin-left: 1.2rem;
-
   }
   .arrow-box-left {
     align-self: center;

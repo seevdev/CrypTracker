@@ -22,13 +22,11 @@ function FavCoins(): JSX.Element {
               <FavCoin
                 name={favCoin.name}
                 image={favCoin.image}
-                priceChangePercentageWeekly={
-                  favCoin.priceChange7dPercent
-                }
+                priceChangePercentageWeekly={favCoin.priceChange7dPercent}
                 id={favCoin.id}
                 key={favCoin.id}
                 number={index}
-                symbol = {favCoin.symbol}
+                symbol={favCoin.symbol}
               />
             );
           })}

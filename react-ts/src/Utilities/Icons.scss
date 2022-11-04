@@ -5,10 +5,10 @@
   height: 24px; 
 
   &.icon-arrow {
-    // @include themify($themes) {
-    //   stroke: themed('baseColor');
-    // }
-    color: #fff;
+    @include themify($themes) {
+      stroke: themed('textColor');
+    }
+    
     cursor: pointer;
   }
   &.icon-arrow:hover,

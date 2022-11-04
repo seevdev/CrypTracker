@@ -5,9 +5,10 @@ import Modal from '../../UI/Modal';
 import './MoreInfo.scss';
 
 const MoreInfo = (props: Coin & DivProps): JSX.Element => {
+  console.log(props);
   return (
     <Modal onClick={props.onClick}>
-      <div>
+      <div className='more-info--container'>
         <h2>Stats for {props.name}</h2>
         <div className='minfo-table'>
           <span>Current Price:</span>

@@ -13,13 +13,20 @@ import fetchCtx from '../../../store/fetch-context';
 import './CoinItem.scss';
 
 function CoinItem(props: any) {
-  const { timeDiffGreater, updatedCoin } = useContext(fetchCtx);
+  const { timeDiffGreater, updatedCoin, setTimeDiffGreaterHandler } =
+    useContext(fetchCtx);
   const [infoMenuOpen, setInfoMenuOpen] = useState(false);
   const [statsMenuOpen, setStatsMenuOpen] = useState(false);
-  const [propsMenuInfo, setPropsMenuInfo] = useState(updatedCoin);
+  const [propsMenuInfo, setPropsMenuInfo] = useState({
+    key: props.id,
+    ...props,
+  });
 
   useEffect(() => {
-    setPropsMenuInfo(updatedCoin);
+    if (timeDiffGreater) {
+      setPropsMenuInfo({ ...updatedCoin, key: updatedCoin.id });
+      
+    }
   }, [timeDiffGreater, updatedCoin]);
 
   const infoMenuToggle = () => {
@@ -33,7 +40,7 @@ function CoinItem(props: any) {
     setStatsMenuOpen(value);
   };
 
-  const price = `$${Math.trunc(props.price).toLocaleString('en-US')}`;
+  const price = `$${props.price.toLocaleString('en-US')}`;
 
   let icon = IconMenu;
   if (infoMenuOpen) {
