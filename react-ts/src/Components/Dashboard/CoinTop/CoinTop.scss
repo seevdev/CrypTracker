@@ -1,16 +1,14 @@
 @import '/src/Utilities/Variables';
 .CoinTop {
-  
   font-size: 1.4rem;
   display: grid;
   flex-flow: row;
   grid-template-columns: 50% 1fr 1fr;
   justify-items: center;
   align-items: center;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.361);
-  padding: 0.6rem 1.2rem;
+  border-bottom: 1px solid rgb(37, 37, 37);;
+  padding: 1.2rem;
   width: 100%;
-
 
   img {
     width: 24px;
@@ -25,7 +23,6 @@
     display: flex;
     flex-flow: column;
     align-items: flex-start;
-    
   }
   .flex-row {
     display: flex;
@@ -37,7 +34,16 @@
     width: 32px;
     height: 32px;
   }
-  .column-one{
+  .column-one {
     justify-self: start;
   }
+  .name-box {
+    gap: 0.8rem;
+    letter-spacing: 1.25px;
+
+  }
+  .symbol {
+    color: #999;
+  }
+ 
 }

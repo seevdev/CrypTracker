@@ -129,7 +129,7 @@ const FetchCtxtProvider = function <T>(props: T & Children) {
     let coinsAll = [...res];
     let priceArr = coinsAll.map((coin) => coin.price);
 
-    for (let i = 0; arr.length < 5; i++) {
+    for (let i = 0; arr.length < 3; i++) {
       let maxPrice = Math.max(...priceArr);
       let [topCoin] = coinsAll.filter((coin) => coin.price === maxPrice);
       arr.push(topCoin);

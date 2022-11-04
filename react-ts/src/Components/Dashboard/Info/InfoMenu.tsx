@@ -40,9 +40,9 @@ const InfoMenu = (props: any): JSX.Element => {
     const [currentCoin] = coins.filter((curr) => curr.id === props.id);
 
     if (new Date().getTime() - currentCoin.time > 60 * 2 * 1000) {
-      setTimeDiffGreaterHandler(true);
-      updateCoin(props.id);
-      console.log('updated');
+    setTimeDiffGreaterHandler(true);
+    updateCoin(props.id);
+    console.log('updated');
     }
   };
 

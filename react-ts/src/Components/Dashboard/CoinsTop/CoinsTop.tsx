@@ -10,8 +10,13 @@ interface CoinsTop {
 function CoinsTop(props: CoinsTop): JSX.Element {
   return (
     <div className='CoinsTop'>
-      <h3>Top 5 Coins</h3>
+      <h3>Top Coins</h3>
       <div className='topfive-container'>
+        <div className='topcoins-titles'>
+          <span className='titles-column-one'>Name</span>
+          <span>Price</span>
+          <span >Weekly</span>
+        </div>
         {props.topCoins.map((topCoin, index) => {
           return (
             <CoinTop

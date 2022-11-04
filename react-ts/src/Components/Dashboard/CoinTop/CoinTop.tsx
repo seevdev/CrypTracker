@@ -20,9 +20,9 @@ function CoinTop(props: CoinTopProps): JSX.Element {
           <img src={props.image} />
         </span>
 
-        <div className='flex-column'>
+        <div className='flex-column name-box'>
           <span>{props.name}</span>
-          <span>{props.symbol}</span>
+          <span className='symbol'>{props.symbol}</span>
         </div>
       </div>
       <span>{props.price}</span>
@@ -30,7 +30,7 @@ function CoinTop(props: CoinTopProps): JSX.Element {
         <span className='coin-top--graph'>
           {increasing ? ArrowUp : ArrowDown}
         </span>
-        <span>{`${props.changePercent.toFixed(2)}%`}</span>
+        <span className='percent'>{`${props.changePercent.toFixed(2)}%`}</span>
       </div>
     </div>
   );

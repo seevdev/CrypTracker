@@ -28,7 +28,7 @@ function DashBoardDesk<T>(props: T) {
 
   useEffect(() => {
     if (topCoins.length > 0) {
-      const randomTopCoin = topCoins[Math.floor(Math.random() * 5)];
+      const randomTopCoin = topCoins[Math.floor(Math.random() * 3)];
       const newData = [
         randomTopCoin.priceChange1y.toFixed(2),
         randomTopCoin.priceChange200d.toFixed(2),
@@ -76,9 +76,6 @@ function DashBoardDesk<T>(props: T) {
       setDisplay(false);
     }
   }, [isSearching, filteredCoins, coins]);
-  console.log(topCoins);
-  const randomTopCoin = topCoins[0];
-  console.log(randomTopCoin);
 
   const chartData = {
     labels: [
@@ -119,63 +116,149 @@ function DashBoardDesk<T>(props: T) {
   return (
     <div className='dashboard-container'>
       <h2>Dashboard</h2>
-      <div className='items-container '>
-        <div className='dashboard-padination'>
-          <div className='dashboard-arrows-cont'>
-            {display && (
-              <div
-                onClick={() => {
-                  if (currentPage > 1) {
-                    setCurrentPage((prevPage) => prevPage - 1);
-                  }
-                }}
-              >
-                {IconArrowL}
-              </div>
-            )}
+      {isLoading && (
+        <div className='loading'>
+          <span>Loading..</span>
+        </div>
+      )}
+      {!isLoading && (
+        <div className='items-container '>
+          <div className='column-two row-span-2'>
             {!isLoading && <CoinsAll currentCoins={currentCoins} />}
-            {isLoading && <p className='dashboard-desk'>Loading..</p>}
-            {display && (
-              <div
-                onClick={() => {
-                  if (currentPage < Math.ceil(coins.length / coinsPerPage)) {
-                    setCurrentPage((prevPage) => prevPage + 1);
-                  }
-                }}
-              >
-                {IconArrowR}
-              </div>
-            )}
           </div>
-          {display && (
-            <Pagination
-              currentPage={currentPage}
-              elementsPerPage={coinsPerPage}
-              totalElements={!isSearching ? coins.length : filteredCoins.length}
-              paginate={paginateHandler}
-            />
-          )}
-        </div>
-        <div className='chart-container'>
-          {topCoins.length !== 0 && (
-            <LineChart
-              type={'line'}
-              data={chartData}
-              options={{
-                scales: {
-                  y: {
-                    beginAtZero: true,
-                  },
-                },
-              }}
-            />
-          )}
-        </div>
 
-        <CoinsTop topCoins={topCoins} />
-      </div>
+          {display && (
+            <div
+              className='column-one row-span-2 arrow-box-left '
+              onClick={() => {
+                if (currentPage > 1) {
+                  setCurrentPage((prevPage) => prevPage - 1);
+                }
+              }}
+            >
+              {IconArrowL}
+            </div>
+          )}
+
+          {display && (
+            <div
+              className='column-three row-span-2 arrow-box-right '
+              onClick={() => {
+                if (currentPage < Math.ceil(coins.length / coinsPerPage)) {
+                  setCurrentPage((prevPage) => prevPage + 1);
+                }
+              }}
+            >
+              {IconArrowR}
+            </div>
+          )}
+
+          {display && (
+            <div className='column-two row-three pagination-box'>
+              <Pagination
+                currentPage={currentPage}
+                elementsPerPage={coinsPerPage}
+                totalElements={
+                  !isSearching ? coins.length : filteredCoins.length
+                }
+                paginate={paginateHandler}
+              />
+            </div>
+          )}
+
+          <div className='column-four row-one chart-container'>
+            <h3>Annual Change</h3>
+            <div className='chart'>
+              {topCoins.length !== 0 && (
+                <LineChart
+                  type={'line'}
+                  data={chartData}
+                  options={{
+                    scales: {
+                      y: {
+                        beginAtZero: true,
+                      },
+                    },
+                  }}
+                />
+              )}
+            </div>
+          </div>
+
+          <div className='coins-top column-four row-two'>
+            <CoinsTop topCoins={topCoins} />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
 
 export default DashBoardDesk;
+
+{
+  /* <div className='dashboard-container'>
+<h2>Dashboard</h2>
+<div className='items-container '>
+  <div className='dashboard-padination'>
+    <div className='dashboard-arrows-cont'>
+      {display && (
+        <div
+          onClick={() => {
+            if (currentPage > 1) {
+              setCurrentPage((prevPage) => prevPage - 1);
+            }
+          }}
+        >
+          {IconArrowL}
+        </div>
+      )}
+      {!isLoading && <CoinsAll currentCoins={currentCoins} />}
+      {isLoading && <p className='dashboard-desk'>Loading..</p>}
+      {display && (
+        <div
+          onClick={() => {
+            if (currentPage < Math.ceil(coins.length / coinsPerPage)) {
+              setCurrentPage((prevPage) => prevPage + 1);
+            }
+          }}
+        >
+          {IconArrowR}
+        </div>
+      )}
+    </div>
+    {display && (
+      <Pagination
+        currentPage={currentPage}
+        elementsPerPage={coinsPerPage}
+        totalElements={!isSearching ? coins.length : filteredCoins.length}
+        paginate={paginateHandler}
+      />
+    )}
+  </div>
+  <div>
+    <h3>Chart</h3>
+    <div className='chart'>
+      {topCoins.length !== 0 && (
+        <LineChart
+          type={'line'}
+          data={chartData}
+          options={{
+            scales: {
+              y: {
+                beginAtZero: true,
+              },
+            },
+          }}
+        />
+      )}
+    </div>
+  </div>
+
+  <div className='coins-top'>
+    <CoinsTop topCoins={topCoins} />
+  </div>
+</div>
+</div>
+); */
+}

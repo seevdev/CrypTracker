@@ -5,9 +5,10 @@
   height: 24px; 
 
   &.icon-arrow {
-    @include themify($themes) {
-      stroke: themed('baseColor');
-    }
+    // @include themify($themes) {
+    //   stroke: themed('baseColor');
+    // }
+    color: #fff;
     cursor: pointer;
   }
   &.icon-arrow:hover,
@@ -29,14 +30,28 @@
   align-items: center;
 
   &:hover{
-    background-color: #22c55e;
+    background-color:#0ca678;
   }
 
 }
 
 .icon-arrow-down{
-  color: red;
+  color: #d6336c;
 }
 .icon-arrow-up{
-  color: green;
+  color: #0ca678;
+}
+.icon-triangle--up{
+  color: #0ca678;
+  width: 10px;
+  height: 10px;
+  margin-bottom: 0.2rem;
+}
+
+.icon-triangle--down{
+  color: #d6336c;
+  rotate: (180deg);
+  width: 10px;
+  height: 10px;
+  margin-top: 0.2rem;
 }

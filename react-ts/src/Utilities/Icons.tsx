@@ -224,3 +224,25 @@ export const LogOutIcon = (
     />
   </svg>
 );
+
+export const TriangleUpIcon = (
+  <svg
+    viewBox='0 0 100 100'
+    fill='currentColor'
+    strokeWidth={1.5}
+    className=' icon-triangle--up'
+  >
+    <polygon points='50 15, 100 100, 0 100' />
+  </svg>
+);
+
+export const TriangleDownIcon = (
+  <svg
+    viewBox='0 0 100 100'
+    fill='currentColor'
+    strokeWidth={1.5}
+    className=' icon-triangle--down'
+  >
+    <polygon points='50 15, 100 100, 0 100' />
+  </svg>
+);
