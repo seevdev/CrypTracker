@@ -4,10 +4,11 @@ import { IconMenu, IconClose } from '../../Utilities/Icons';
 import InfoMenu from './Info/InfoMenu';
 import MoreInfo from './Info/MoreInfo';
 import Button from '../UI/Button';
-import './CoinItem.scss';
 import fetchCtx from '../../store/fetch-context';
+import './CoinItem.scss';
 
 function CoinItem(props: Coin) {
+  const { timeDiffGreater, updatedCoin } = useContext(fetchCtx);
   const [infoMenuOpen, setInfoMenuOpen] = useState(false);
   const [statsMenuOpen, setStatsMenuOpen] = useState(false);
   const [propsMenuInfo, setPropsMenuInfo] = useState({
@@ -15,16 +16,19 @@ function CoinItem(props: Coin) {
     price14Days: props.price14Days,
     price30Days: props.price30Days,
     price60Days: props.price60Days,
+    priceChange1h: props.priceChange1h,
+    priceChange1y: props.priceChange1y,
+    priceChange7d: props.priceChange7d,
+    priceChange200d: props.priceChange200d,
+    symbol: props.symbol,
     high24h: props.high24h,
     total: props.total,
     price: props.price,
     name: props.name,
     id: props.id,
-    priceChangePercentageWeekly: props.priceChangePercentageWeekly,
+    priceChange7dPercent: props.priceChange7dPercent,
     image: props.image,
   });
-
-  const { timeDiffGreater, updatedCoin } = useContext(fetchCtx);
 
   useEffect(() => {
     if (timeDiffGreater) {
@@ -33,16 +37,21 @@ function CoinItem(props: Coin) {
         price14Days: updatedCoin.price14Days,
         price30Days: updatedCoin.price30Days,
         price60Days: updatedCoin.price60Days,
+        priceChange1h: updatedCoin.priceChange1h,
+        priceChange1y: updatedCoin.priceChange1y,
+        priceChange7d: updatedCoin.priceChange7d,
+        priceChange200d: updatedCoin.priceChange200d,
+        symbol: updatedCoin.symbol,
         high24h: updatedCoin.high24h,
         total: updatedCoin.total,
         price: updatedCoin.price,
         name: updatedCoin.name,
         id: updatedCoin.id,
-        priceChangePercentageWeekly: updatedCoin.priceChangePercentageWeekly,
+        priceChange7dPercent: updatedCoin.priceChange7dPercent,
         image: updatedCoin.image,
       });
     }
-  }, [timeDiffGreater]);
+  }, [timeDiffGreater, updatedCoin]);
 
   const infoMenuToggle = () => {
     setInfoMenuOpen((prev) => !prev);
@@ -68,7 +77,7 @@ function CoinItem(props: Coin) {
         <img src={props.image} />
         <span className='name'>{props.name}</span>
         <span className='price'>{price}</span>
-        <span className='weekly-percent'>{`${props.priceChangePercentageWeekly}% this week`}</span>
+        <span className='weekly-percent'>{`${props.priceChange7dPercent}% this week`}</span>
       </div>
 
       <Button onClick={infoMenuToggle}>

@@ -1,13 +1,18 @@
 import React from 'react';
-import classes from './App.module.scss';
+import { Route } from 'react-router-dom';
 import Dashboard from './Components/Dashboard/Dashboard';
-import FavCoinsLayout from './Components/FavouriteCoins/FavCoinsLayout/FavCoinsLayout';
+import FavCoinsLayout from './Pages/FavCoinsLayout/FavCoinsLayout';
+import classes from './App.module.scss';
 
 function App() {
   return (
     <div className={classes.app}>
-      <Dashboard />
-      {/* <FavCoinsLayout /> */}
+      <Route path='/dashboard'>
+        <Dashboard />
+      </Route>
+      <Route path='/fav'>
+        <FavCoinsLayout />
+      </Route>
     </div>
   );
 }

@@ -1,9 +1,10 @@
 @import '/src/Utilities/Variables';
 .FavCoin {
-  @include themify($themes) {
-    background-color: themed('coinColor');
-    color: themed('textColor');
-  }
+  // @include themify($themes) {
+  //   background-color: themed('coinColor');
+  //   color: themed('textColor');
+  // }
+  // background-color: #222128b6;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -12,7 +13,10 @@
   // box-shadow: rgba(0, 0, 0, 0.255) 0px 10px 36px 0px,
   //   rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
   padding: 2.4rem;
-  border-radius: 11px;
+  border-bottom: 1px solid rgb(36, 36, 36);
+  &:last-child {
+    border: none;
+  }
   img {
     width: 32px;
     height: 32px;

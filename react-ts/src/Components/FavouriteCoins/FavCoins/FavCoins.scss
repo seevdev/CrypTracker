@@ -10,24 +10,21 @@
   border-radius: $bradius-l;
   padding: calc($unit-m * 2) calc($unit-m * 4);
 
-
-  .coins-container{
-    grid-row:  1/ span 2;
+  .coins-container {
+    grid-row: 1 / span 2;
     // border: 1px solid red;
-    padding:calc($unit-m * 2) ;
-
-    
-}
-.graph {
+    padding: calc($unit-m * 2);
+  }
+  .graph {
     border: 1px solid red;
-    padding:calc($unit-m * 2) ;
-}
+    padding: calc($unit-m * 2);
+  }
 
-
-.coins{
+  .coins {
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
-
-}
+    background-color: #22212857;
+    border-radius: 11px;
+  }
 }

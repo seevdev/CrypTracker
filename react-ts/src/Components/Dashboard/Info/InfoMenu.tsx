@@ -4,16 +4,22 @@ import Button from '../../UI/Button';
 import './InfoMenu.scss';
 import fetchCtx from '../../../store/fetch-context';
 
-const InfoMenu = (props: any) => {
+interface InfoMenuProps {
+  id: string;
+  onInfoMenuOpen: (val: boolean) => {};
+  onStatsMenu: (val: boolean) => {};
+}
+
+const InfoMenu = (props: any): JSX.Element => {
   const { coins, favCoins, setFavCoins } = useContext(generalCtx);
   const { updateCoin, setTimeDiffGreaterHandler } = useContext(fetchCtx);
 
   const addToFavHandler = () => {
     const [favCoin] = [...coins.filter((coin) => coin.id === props.id)];
     const containsCoin = favCoins.some((current) => favCoin.id === current.id);
-    const favCoinsArr = [favCoin];
-    console.log(favCoinsArr);
-    containsCoin || setFavCoins(favCoinsArr);
+    const favCoinsArr = [...favCoins];
+    favCoinsArr.push(favCoin);
+    !containsCoin && setFavCoins(favCoinsArr);
   };
 
   useEffect(() => {

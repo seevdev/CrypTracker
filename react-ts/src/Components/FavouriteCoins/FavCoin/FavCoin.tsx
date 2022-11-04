@@ -10,7 +10,8 @@ interface FavCoinProps {
   image: string;
   priceChangePercentageWeekly: number;
   id: string;
-  number:number;
+  number: number;
+  symbol: string;
 }
 function FavCoin(props: FavCoinProps): JSX.Element {
   const { favCoins, setFavCoins } = useContext(generalCtx);
@@ -24,7 +25,7 @@ function FavCoin(props: FavCoinProps): JSX.Element {
   return (
     <div className='FavCoin'>
       <div className='flex'>
-        <span>{props.number+1}</span>
+        <span>{props.number + 1}</span>
         <img src={props.image} />
         <div>{props.name}</div>
       </div>

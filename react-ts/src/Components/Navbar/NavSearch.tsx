@@ -1,6 +1,6 @@
 import React, { useState, useContext, ChangeEvent, useEffect } from 'react';
-import generalCtx from '../../../store/general-context';
-import Input from '../../UI/Input';
+import generalCtx from '../../store/general-context';
+import Input from '../UI/Input';
 import './NavSearch.scss';
 
 const NavSearch = () => {
@@ -19,16 +19,15 @@ const NavSearch = () => {
     } else {
       setSearchingHandler(false);
     }
-   
+
     const results = [
       ...coins.filter((coin) =>
         coin.name.toLowerCase().includes(inputValue.toLowerCase())
       ),
     ];
 
-
     filteredCoinsChangeHandler([...results]);
-  }, [inputValue,coins]);
+  }, [inputValue, coins]);
 
   return (
     <div className='nav-search'>

@@ -11,10 +11,10 @@ interface CoinTopProps {
   price: number | string;
 }
 function CoinTop(props: CoinTopProps): JSX.Element {
-  const increasing = props.changePercent>0 ? true : false;
+  const increasing = props.changePercent > 0 ? true : false;
   return (
     <div className='CoinTop'>
-      <div className='flex-row'>
+      <div className='flex-row column-one'>
         <span>{props.number}</span>
         <span>
           <img src={props.image} />

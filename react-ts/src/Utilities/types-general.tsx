@@ -5,16 +5,21 @@ export type Children = {
 export type Coin = {
   image: string;
   name: string;
-  id:  string;
+  id: string;
   currentCoins?: any;
   price: number;
+  priceChange1h: number;
+  priceChange1y: number;
+  priceChange7d: number;
   price14Days: number;
   price30Days: number;
   price60Days: number;
-  priceChangePercentageWeekly: number;
+  priceChange200d: number;
+  priceChange7dPercent: number;
   high24h: number;
   total: number;
-  time:number
+  time: number;
+  symbol: string;
   children?: React.ReactNode;
 };
 
@@ -25,6 +30,7 @@ export type generalCtxType = {
   isSearching: boolean;
   isLoading: boolean;
   statsBtnClicked: boolean;
+  statsMenuOpen: boolean;
   setStatsBtnHandler: (a: boolean) => void;
   setCoinsHandler: (a: Coin[]) => void;
   setIsLoadingHandler: (a: boolean) => void;
@@ -32,20 +38,12 @@ export type generalCtxType = {
   coinsChangeHandler: (val: Coin[]) => void;
   filteredCoinsChangeHandler: (val: Coin[]) => void;
   setFavCoins: (val: Coin[]) => void;
+  setStatsMenuOpen: (val: boolean) => void;
   value?: any;
 };
 export type CoinName = {
   name: string;
 };
-
-// export type AddInfo = {
-//   name: string;
-//   price: number;
-//   price14Days: number;
-//   price30Days: number;
-//   price60Days: number;
-//   total: number;
-// };
 
 export declare module Data {
   export interface Image {
@@ -1165,5 +1163,3 @@ export declare module Data {
     localization: Localization;
   }
 }
-
-

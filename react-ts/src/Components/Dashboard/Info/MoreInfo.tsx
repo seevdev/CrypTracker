@@ -2,9 +2,9 @@ import React from 'react';
 import { DivProps } from 'react-html-props';
 import { Coin } from '../../../Utilities/types-general';
 import Modal from '../../UI/Modal';
-import './MoreInfo.scss'
+import './MoreInfo.scss';
 
-const MoreInfo = (props: Coin & DivProps) => {
+const MoreInfo = (props: Coin & DivProps): JSX.Element => {
   return (
     <Modal onClick={props.onClick}>
       <div>
