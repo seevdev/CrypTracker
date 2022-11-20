@@ -1,5 +1,6 @@
 import React from 'react';
 import CoinItem from '../Coin/CoinItem';
+import { Coin } from '../../../Models/models';
 import classes from './CoinsAll.module.scss';
 
 const CoinsAll = function ({ currentCoins }: any) {
@@ -25,13 +26,8 @@ const CoinsAll = function ({ currentCoins }: any) {
           symbol: coin.symbol,
           priceChange200d: coin.priceChange200d,
         };
-        console.log(coinProps);
-        return (
-          <CoinItem
-           
-            {...coinProps}
-          />
-        );
+
+        return <CoinItem {...coinProps} />;
       })}
     </div>
   );

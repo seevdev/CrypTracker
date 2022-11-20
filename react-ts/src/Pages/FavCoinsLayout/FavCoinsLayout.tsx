@@ -7,18 +7,18 @@ import Header from '../../Components/Header/Header';
 
 import './FavCoinsLayout.scss';
 
-function FavCoinsLayout(): JSX.Element {
+const FavCoinsLayout = (): JSX.Element => {
   return (
     <GeneralCtxProvider>
       <ThemeContextProvider>
         <div className='FavCoinsLayout'>
           <Sidemenu />
-          <Header />
+          <Header withSearchBar={false} withRefreshBtn={false} />
           <FavCoins />
         </div>
       </ThemeContextProvider>
     </GeneralCtxProvider>
   );
-}
+};
 
 export default FavCoinsLayout;

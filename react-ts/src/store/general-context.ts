@@ -1,6 +1,6 @@
 import React, { createContext } from 'react';
-import { Coin } from '../Utilities/types-general';
-import { generalCtxType } from '../Utilities/types-general';
+import { Coin } from '../Models/models';
+import { generalCtxType } from '../Models/models';
 
 const generalCtx = createContext<generalCtxType>({
   coins: [
@@ -47,7 +47,7 @@ const generalCtx = createContext<generalCtxType>({
   isSearching: false,
   isLoading: false,
   statsBtnClicked: false,
-  statsMenuOpen:false,
+  statsMenuOpen: false,
   setStatsBtnHandler: () => {},
   setCoinsHandler: () => {},
   setIsLoadingHandler: () => {},
@@ -55,7 +55,7 @@ const generalCtx = createContext<generalCtxType>({
   setSearchingHandler: () => {},
   filteredCoinsChangeHandler: () => {},
   coinsChangeHandler: () => {},
-  setStatsMenuOpen:(v)=>{},
+  setStatsMenuOpen: (v) => {},
 });
 
 export default generalCtx;

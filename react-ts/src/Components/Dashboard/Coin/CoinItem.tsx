@@ -1,33 +1,32 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Coin } from '../../../Utilities/types-general';
+
 import {
   IconMenu,
   IconClose,
   TriangleUpIcon,
   TriangleDownIcon,
-} from '../../../Utilities/Icons';
+} from '../../../Utilities/Icons/Icons';
+import { Coin } from '../../../Models/models';
 import InfoMenu from '../Info/InfoMenu';
 import MoreInfo from '../Info/MoreInfo';
-import Button from '../../UI/Button';
+import Button from '../../UI/Button/Button';
 import fetchCtx from '../../../store/fetch-context';
+import generalCtx from '../../../store/general-context';
 import './CoinItem.scss';
 
-function CoinItem(props: any) {
-  const { timeDiffGreater, updatedCoin, setTimeDiffGreaterHandler } =
-    useContext(fetchCtx);
+function CoinItem(props: Coin) {
+  const { timeDiffGreater, updatedCoin, updateCoin } = useContext(fetchCtx);
+  const { coins } = useContext(generalCtx);
   const [infoMenuOpen, setInfoMenuOpen] = useState(false);
   const [statsMenuOpen, setStatsMenuOpen] = useState(false);
-  const [propsMenuInfo, setPropsMenuInfo] = useState({
-    key: props.id,
-    ...props,
-  });
+  const [propsMenu, setPropsMenu] = useState<Coin>(props);
 
   useEffect(() => {
     if (timeDiffGreater) {
-      setPropsMenuInfo({ ...updatedCoin, key: updatedCoin.id });
-      
+      updateCoin(props.id);
+      setPropsMenu(updatedCoin);
     }
-  }, [timeDiffGreater, updatedCoin]);
+  }, [updatedCoin]);
 
   const infoMenuToggle = () => {
     setInfoMenuOpen((prev) => !prev);
@@ -83,7 +82,7 @@ function CoinItem(props: any) {
           onClick={() => {
             setStatsMenuOpen(false);
           }}
-          {...propsMenuInfo}
+          {...propsMenu}
         />
       )}
     </div>

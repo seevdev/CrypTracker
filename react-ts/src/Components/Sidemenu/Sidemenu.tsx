@@ -6,7 +6,7 @@ import {
   FavouriteIcon,
   SettingIcon,
   LogOutIcon,
-} from '../../Utilities/Icons';
+} from '../../Utilities/Icons/Icons';
 
 import './Sidemenu.scss';
 
@@ -32,14 +32,8 @@ const Sidemenu = (): JSX.Element => {
             </NavLink>
           </div>
         </li>
-        <li>
-          <div>
-            <div className='side-menu_icon-back'>{LiveReportsIcon}</div>
-            <a href='#'>Live Reports</a>
-          </div>
-        </li>
 
-        <li>
+        {/* <li>
           <div>
             <div className='side-menu_icon-back'>{SettingIcon}</div>
             <a href='#'>Settings</a>
@@ -50,7 +44,7 @@ const Sidemenu = (): JSX.Element => {
             <div className='side-menu_icon-back'>{LogOutIcon}</div>
             <a href='#'>Log out</a>
           </div>
-        </li>
+        </li> */}
       </ul>
     </menu>
   );

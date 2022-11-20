@@ -1,10 +1,10 @@
 import React, { useContext, useCallback, useState, useEffect } from 'react';
 
-import { Coin, Data, Children } from '../Utilities/types-general';
+import { Coin, Data, Children } from '../Models/models';
 import fetchCtx from './fetch-context';
 import generalCtx from './general-context';
 
-const FetchCtxtProvider = function <T>(props: T & Children) {
+const FetchCtxtProvider = (props: Children): JSX.Element => {
   // Fix updateCoin type later
   const [updatedCoin, setUpdatedCoin] = useState<Coin>({
     id: '',
@@ -27,13 +27,8 @@ const FetchCtxtProvider = function <T>(props: T & Children) {
   const [timeDiffGreater, setTimeDiffGreater] = useState(false);
   const [topCoins, setTopCoins] = useState<Coin[]>([]);
 
-  const {
-    coins,
-    setIsLoadingHandler,
-    setCoinsHandler,
-    statsBtnClicked,
-    setStatsMenuOpen,
-  } = useContext(generalCtx);
+  const { coins, setIsLoadingHandler, setCoinsHandler } =
+    useContext(generalCtx);
 
   const API_URL = 'https://api.coingecko.com/api/v3/coins';
 
@@ -72,11 +67,7 @@ const FetchCtxtProvider = function <T>(props: T & Children) {
           time: new Date().getTime(),
         };
       });
-    }
-    // typeof data === 'object' &&
-    // data !== null &&
-    // data instanceof Array === false
-    else {
+    } else {
       return [
         {
           id: data.id,
@@ -111,7 +102,7 @@ const FetchCtxtProvider = function <T>(props: T & Children) {
   //   return new Error('Something went wrong');
   // };
 
-  const setCoins = (data: any) => {
+  const setCoins = (data: Coin[]) => {
     setCoinsHandler(data);
     window.localStorage.setItem('coins', JSON.stringify(data));
   };
@@ -125,7 +116,7 @@ const FetchCtxtProvider = function <T>(props: T & Children) {
     [coins]
   );
 
-  const topCoinsSetter = (res: any, arr: Coin[]) => {
+  const topCoinsSetter = (res: Coin[], arr: Coin[]) => {
     let coinsAll = [...res];
     let priceArr = coinsAll.map((coin) => coin.price);
 
@@ -142,9 +133,12 @@ const FetchCtxtProvider = function <T>(props: T & Children) {
     setIsLoadingHandler(true);
     fetchCoins(API_URL).then((res) => {
       setCoins(res);
+
       let topArr: Coin[] = [];
       topCoinsSetter(res, topArr);
+
       setIsLoadingHandler(false);
+
       setTopCoins(topArr);
     });
   };

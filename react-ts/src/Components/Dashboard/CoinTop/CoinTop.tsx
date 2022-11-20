@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowDown, ArrowUp } from '../../../Utilities/Icons';
+import { ArrowDown, ArrowUp } from '../../../Utilities/Icons/Icons';
 import './CoinTop.scss';
 
 interface CoinTopProps {

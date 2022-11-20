@@ -14,6 +14,7 @@ function FavCoins(): JSX.Element {
 
   return (
     <div className='FavCoins'>
+      <h2>Favourite Coins</h2>
       <div className='coins-container'>
         <div className='coins'>
           {favCoins.map((favCoin, index) => {
@@ -32,9 +33,6 @@ function FavCoins(): JSX.Element {
           })}
         </div>
       </div>
-
-      <div>Graph1</div>
-      <div className='graph'>Graph2</div>
     </div>
   );
 }

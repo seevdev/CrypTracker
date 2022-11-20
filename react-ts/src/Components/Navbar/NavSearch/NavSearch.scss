@@ -1,0 +1,22 @@
+@import '/src/Utilities/Variables' ;
+
+.nav-search {
+  display: flex;
+  @include flex-center;
+  @include themify($themes) {
+    background-color: themed('baseColor');
+    color: themed('textColor');
+  }
+  border-radius:$bradius-l;
+  
+  input {
+    background-color: transparent;
+  }
+ 
+  .icon{
+    width: 24px;
+    height:24px;
+    margin-left: 1rem;
+  }
+}
+

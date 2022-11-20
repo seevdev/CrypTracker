@@ -1,23 +1,22 @@
 @import '/src/Utilities/Variables';
+
 .FavCoins {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  height: 100%;
+  height: 85vh;
+  margin-top: -1.2rem;
+  min-width: 80vw;
   @include themify($themes) {
     background-color: themed('baseColor');
     color: themed('textColor');
   }
   border-radius: $bradius-l;
-  padding: calc($unit-m * 2) calc($unit-m * 4);
+  padding: calc($unit-m * 4);
 
-  .coins-container {
-    grid-row: 1 / span 2;
-    // border: 1px solid red;
-    padding: calc($unit-m * 2);
+  h2 {
+    margin-bottom: 2.4rem;
+    letter-spacing: 1.25px;
   }
-  .graph {
-    border: 1px solid red;
-    padding: calc($unit-m * 2);
+  .coins-container {
+    width: 45%;
   }
 
   .coins {

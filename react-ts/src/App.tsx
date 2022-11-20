@@ -1,12 +1,15 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
-import Dashboard from './Components/Dashboard/Dashboard';
+import { Route, Redirect } from 'react-router-dom';
+import Dashboard from './Pages/DashboardLayout/Dashboard';
 import FavCoinsLayout from './Pages/FavCoinsLayout/FavCoinsLayout';
 import classes from './App.module.scss';
 
 function App() {
   return (
     <div className={classes.app}>
+      <Route exact path='/'>
+        <Redirect to='/dashboard' />
+      </Route>
       <Route path='/dashboard'>
         <Dashboard />
       </Route>

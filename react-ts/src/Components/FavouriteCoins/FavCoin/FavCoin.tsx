@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 
-import { Coin } from '../../../Utilities/types-general';
 import generalCtx from '../../../store/general-context';
-import Button from '../../UI/Button';
+import Button from '../../UI/Button/Button';
 import './FavCoin.scss';
 
 interface FavCoinProps {
@@ -31,7 +30,7 @@ function FavCoin(props: FavCoinProps): JSX.Element {
       </div>
 
       <div className='flex graph-container'>
-        <div className='fav-coin--graph'>Graph</div>
+        <div className='fav-coin--graph'>Temporary deign</div>
         <Button onClick={favCoinDeleteHandler}>X</Button>
       </div>
     </div>

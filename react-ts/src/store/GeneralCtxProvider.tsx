@@ -1,5 +1,5 @@
-import React, { useState, useCallback, useEffect } from 'react';
-import { Children, Coin, generalCtxType } from '../Utilities/types-general';
+import React, { useState, useEffect } from 'react';
+import { Children, Coin, generalCtxType } from '../Models/models';
 
 import generalCtx from './general-context';
 
@@ -15,6 +15,7 @@ const GeneralCtxProvider = (props: Children): JSX.Element => {
   const [statsBtnClicked, setStatsBtnClicked] = useState<boolean>(false);
   const [statsMenuOpen, setStatsMenuOpen] = useState(false);
 
+ 
   const setSearchingHandler = (setTrue: boolean) => {
     if (setTrue) {
       setIsSearching(true);
@@ -23,24 +24,9 @@ const GeneralCtxProvider = (props: Children): JSX.Element => {
     }
   };
 
-  const setFavHandler = (val: Coin[]) => {
-    setFavCoins(val);
-  };
-
   useEffect(() => {
     window.localStorage.setItem('favCoins', JSON.stringify(favCoins));
   }, [favCoins]);
-
-  const setCoinsHandler = (val: Coin[]) => {
-    setCoins(val);
-  };
-  const setIsLoadingHandler = (val: boolean) => {
-    setIsLoading(val);
-  };
-
-  const setStatsBtnHandler = (val: boolean) => {
-    setStatsBtnClicked(val);
-  };
 
   const searchCtx: generalCtxType = {
     coins: coins,
@@ -49,15 +35,15 @@ const GeneralCtxProvider = (props: Children): JSX.Element => {
     favCoins: favCoins,
     isLoading: isLoading,
     statsBtnClicked: statsBtnClicked,
-    statsMenuOpen:statsMenuOpen,
-    setStatsBtnHandler: setStatsBtnHandler,
-    setIsLoadingHandler: setIsLoadingHandler,
-    setCoinsHandler: setCoinsHandler,
-    setFavCoins: setFavHandler,
+    statsMenuOpen: statsMenuOpen,
+    setStatsBtnHandler: setStatsBtnClicked,
+    setIsLoadingHandler: setIsLoading,
+    setCoinsHandler: setCoins,
+    setFavCoins: setFavCoins,
     setSearchingHandler: setSearchingHandler,
     filteredCoinsChangeHandler: setFilteredCoins,
     coinsChangeHandler: setCoins,
-    setStatsMenuOpen:setStatsMenuOpen,
+    setStatsMenuOpen: setStatsMenuOpen,
   };
   return (
     <generalCtx.Provider value={searchCtx}>

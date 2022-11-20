@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import generalCtx from '../../../store/general-context';
-import Button from '../../UI/Button';
-import './InfoMenu.scss';
+import Button from '../../UI/Button/Button';
 import fetchCtx from '../../../store/fetch-context';
+import './InfoMenu.scss';
+import { Coin } from '../../../Models/models';
 
 interface InfoMenuProps {
   id: string;
@@ -15,8 +16,10 @@ const InfoMenu = (props: any): JSX.Element => {
   const { updateCoin, setTimeDiffGreaterHandler } = useContext(fetchCtx);
 
   const addToFavHandler = () => {
-    const [favCoin] = [...coins.filter((coin) => coin.id === props.id)];
-    const containsCoin = favCoins.some((current) => favCoin.id === current.id);
+    const [favCoin] = [...coins.filter((coin: Coin) => coin.id === props.id)];
+    const containsCoin = favCoins.some(
+      (current: Coin) => favCoin.id === current.id
+    );
     const favCoinsArr = [...favCoins];
     favCoinsArr.push(favCoin);
     !containsCoin && setFavCoins(favCoinsArr);
@@ -39,10 +42,8 @@ const InfoMenu = (props: any): JSX.Element => {
 
     const [currentCoin] = coins.filter((curr) => curr.id === props.id);
 
-    if (new Date().getTime() - currentCoin.time > 12) {
-    setTimeDiffGreaterHandler(true);
-    updateCoin(props.id);
-    console.log('updated');
+    if (new Date().getTime() - currentCoin.time > 60 * 2 * 1000) {
+      setTimeDiffGreaterHandler(true);
     }
   };
 
@@ -58,7 +59,12 @@ const InfoMenu = (props: any): JSX.Element => {
         <span>
           <Button
             onClick={() => {
-              addToFavHandler();
+              if (favCoins.length < 7) {
+                addToFavHandler();
+              } else {
+                alert('You can add maximum 7 coins');
+              }
+
               infoMenuHandler(false);
             }}
           >

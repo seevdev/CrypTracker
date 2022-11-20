@@ -2,15 +2,15 @@ import React, { useEffect, useState, useCallback, useContext } from 'react';
 
 import generalCtx from '../../../store/general-context';
 import fetchCtx from '../../../store/fetch-context';
-import { IconArrowR, IconArrowL } from '../../../Utilities/Icons';
-import { Coin } from '../../../Utilities/types-general';
+import { IconArrowR, IconArrowL } from '../../../Utilities/Icons/Icons';
+import { Coin } from '../../../Models/models';
 import CoinsAll from '../Coins/CoinsAll';
-import Pagination from '../../UI/Pagination';
+import Pagination from '../../UI/Pagination/Pagination';
 import LineChart from '../../UI/ChartComponents/LineChart';
 import CoinsTop from '../CoinsTop/CoinsTop';
 import './DashboardDesk.scss';
 
-function DashBoardDesk<T>(props: T) {
+const DashBoardDesk = function () {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [coinsPerPage, setCoinsPerPage] = useState<number>(9);
   const [display, setDisplay] = useState<boolean>(false);
@@ -118,7 +118,8 @@ function DashBoardDesk<T>(props: T) {
       <h2>Dashboard</h2>
       {isLoading && (
         <div className='loading'>
-          <span>Loading..</span>
+          <img src='https://media.tenor.com/On7kvXhzml4AAAAi/loading-gif.gif' />
+          <span>Loading</span>
         </div>
       )}
       {!isLoading && (
@@ -173,13 +174,7 @@ function DashBoardDesk<T>(props: T) {
                 <LineChart
                   type={'line'}
                   data={chartData}
-                  options={{
-                    scales: {
-                      y: {
-                        beginAtZero: true,
-                      },
-                    },
-                  }}
+                  
                 />
               )}
             </div>
@@ -192,73 +187,10 @@ function DashBoardDesk<T>(props: T) {
       )}
     </div>
   );
-}
+};
 
 export default DashBoardDesk;
 
 {
-  /* <div className='dashboard-container'>
-<h2>Dashboard</h2>
-<div className='items-container '>
-  <div className='dashboard-padination'>
-    <div className='dashboard-arrows-cont'>
-      {display && (
-        <div
-          onClick={() => {
-            if (currentPage > 1) {
-              setCurrentPage((prevPage) => prevPage - 1);
-            }
-          }}
-        >
-          {IconArrowL}
-        </div>
-      )}
-      {!isLoading && <CoinsAll currentCoins={currentCoins} />}
-      {isLoading && <p className='dashboard-desk'>Loading..</p>}
-      {display && (
-        <div
-          onClick={() => {
-            if (currentPage < Math.ceil(coins.length / coinsPerPage)) {
-              setCurrentPage((prevPage) => prevPage + 1);
-            }
-          }}
-        >
-          {IconArrowR}
-        </div>
-      )}
-    </div>
-    {display && (
-      <Pagination
-        currentPage={currentPage}
-        elementsPerPage={coinsPerPage}
-        totalElements={!isSearching ? coins.length : filteredCoins.length}
-        paginate={paginateHandler}
-      />
-    )}
-  </div>
-  <div>
-    <h3>Chart</h3>
-    <div className='chart'>
-      {topCoins.length !== 0 && (
-        <LineChart
-          type={'line'}
-          data={chartData}
-          options={{
-            scales: {
-              y: {
-                beginAtZero: true,
-              },
-            },
-          }}
-        />
-      )}
-    </div>
-  </div>
-
-  <div className='coins-top'>
-    <CoinsTop topCoins={topCoins} />
-  </div>
-</div>
-</div>
-); */
+  
 }

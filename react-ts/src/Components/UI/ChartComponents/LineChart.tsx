@@ -8,7 +8,7 @@ interface LineProps {
   options?: ChartOptions<'line'>;
   data: ChartData<'line'>;
 }
-const LineChart = (props: LineProps) => {
+const LineChart = (props: LineProps): JSX.Element => {
   return (
     <div>
       <Line data={props.data} options={props.options} />

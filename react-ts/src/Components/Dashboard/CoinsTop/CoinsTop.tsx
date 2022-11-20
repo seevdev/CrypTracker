@@ -1,5 +1,5 @@
 import React from 'react';
-import { Coin } from '../../../Utilities/types-general';
+import { Coin } from '../../../Models/models';
 import CoinTop from '../CoinTop/CoinTop';
 import './CoinsTop.scss';
 
@@ -15,7 +15,7 @@ function CoinsTop(props: CoinsTop): JSX.Element {
         <div className='topcoins-titles'>
           <span className='titles-column-one'>Name</span>
           <span>Price</span>
-          <span >Weekly</span>
+          <span>Weekly</span>
         </div>
         {props.topCoins.map((topCoin, index) => {
           return (
