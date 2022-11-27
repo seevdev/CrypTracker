@@ -19,6 +19,7 @@ export interface generalContextModel {
   setIsLoading: (val: boolean) => void;
   setStatsMenuOpen: (val: boolean) => void;
   setIsSearching: (val: boolean) => void;
+  updateCoins: () => void;
 
   value?: any;
 }

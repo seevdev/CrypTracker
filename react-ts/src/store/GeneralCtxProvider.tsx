@@ -81,6 +81,7 @@ const GeneralContextProvider = (props: Children): JSX.Element => {
     setFilteredCoins,
     setCoins: changeCoins,
     setStatsMenuOpen,
+    updateCoins
   };
   return (
     <generalCtx.Provider value={searchCtx}>

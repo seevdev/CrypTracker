@@ -1,15 +1,17 @@
 import React, { useContext, useEffect } from 'react';
-import './NavBar.scss';
 import { IconTheme, RefreshIcon } from '../../Utilities/Icons';
 import NavBarGreeting from './NavBarGreeing';
 import NavSearch from './NavSearch';
 import themeContext from '../../store/theme-context';
+import generalCtx from '../../store/general-context';
 import Button from '../UI/Button';
-import fetchCtx from '../../store/fetch-context';
+import './NavBar.scss';
 
-const NavBar = (props: any): JSX.Element => {
+
+const NavBar = (): JSX.Element => {
   const { theme, setTheme } = useContext(themeContext);
-  const { updateAllCoins } = useContext(fetchCtx);
+  const { updateCoins } = useContext(generalCtx);
+
   const onClickHandler = () => {
     const defaultTheme = 'dark';
     theme === defaultTheme ? setTheme('light') : setTheme('dark');
@@ -31,11 +33,7 @@ const NavBar = (props: any): JSX.Element => {
             </button>
           </div>
           <div className='nav_icon-back'>
-            <Button
-              onClick={() => {
-                updateAllCoins();
-              }}
-            >
+            <Button onClick={updateCoins}>
               <div>{RefreshIcon}</div>
             </Button>
           </div>

@@ -7,17 +7,11 @@ import './Dashboard.scss';
 
 const Dashboard = (): JSX.Element => {
   return (
-   
-    
-     
-          <div className='dashboard'>
-            <Sidemenu />
-            <Header withSearchBar={true} withRefreshBtn={true} />
-            <DashBoardDesk />
-          </div>
-    
-   
-    
+    <div className='dashboard'>
+      <Sidemenu />
+      <Header withSearchBar={true} withRefreshBtn={true} />
+      <DashBoardDesk />
+    </div>
   );
 };
 

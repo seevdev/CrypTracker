@@ -17,11 +17,11 @@ const generalCtx = createContext<generalContextModel>({
   setFavCoins: (val: Coin[]) => {},
   setTopCoins: (val: Coin[]) => {},
   setStatsBtnClicked: (val: boolean) => {},
-  setIsLoading: (val: boolean) => {},
-  setSearchingHandler: (val: boolean) => {},
+  setIsLoading: (val: boolean) => {},  
   setFilteredCoins: (val: Coin[]) => {},
   setStatsMenuOpen: (val: boolean) => {},
   setIsSearching: (val: boolean) => {},
+  updateCoins: () => {},
 });
 
 export default generalCtx;
