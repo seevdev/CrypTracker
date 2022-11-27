@@ -1,61 +1,27 @@
 import React, { createContext } from 'react';
-import { Coin } from '../Models/models';
-import { generalCtxType } from '../Models/models';
+import { Coin } from '../Models/coinModel';
+import { generalContextModel } from '../Models/generalContextModel';
 
-const generalCtx = createContext<generalCtxType>({
-  coins: [
-    {
-      id: '',
-      image: '',
-      name: '',
-      price: 0,
-      priceChange7dPercent: 0,
-      price14Days: 0,
-      price30Days: 0,
-      price60Days: 0,
-      high24h: 0,
-      total: 0,
-      time: 0,
-      priceChange1h: 0,
-      priceChange1y: 0,
-      priceChange7d: 0,
-      priceChange200d: 0,
-      symbol: '',
-    },
-  ],
-  filteredCoins: [
-    {
-      id: '',
-      image: '',
-      name: '',
-      price: 0,
-      priceChange7dPercent: 0,
-      price14Days: 0,
-      price30Days: 0,
-      price60Days: 0,
-      high24h: 0,
-      total: 0,
-      time: 0,
-      priceChange1h: 0,
-      priceChange1y: 0,
-      priceChange7d: 0,
-      priceChange200d: 0,
-      symbol: '',
-    },
-  ],
+const generalCtx = createContext<generalContextModel>({
+  coins: [],
+  filteredCoins: [],
   favCoins: [],
+  topCoins: [],
   isSearching: false,
   isLoading: false,
   statsBtnClicked: false,
   statsMenuOpen: false,
-  setStatsBtnHandler: () => {},
-  setCoinsHandler: () => {},
-  setIsLoadingHandler: () => {},
+  updatedCoin: undefined,
+  timeDifferenceGreater: false,
+  setCoins: (val: Coin[]) => {},
   setFavCoins: (val: Coin[]) => {},
-  setSearchingHandler: () => {},
-  filteredCoinsChangeHandler: () => {},
-  coinsChangeHandler: () => {},
-  setStatsMenuOpen: (v) => {},
+  setTopCoins: (val: Coin[]) => {},
+  setStatsBtnClicked: (val: boolean) => {},
+  setIsLoading: (val: boolean) => {},
+  setSearchingHandler: (val: boolean) => {},
+  setFilteredCoins: (val: Coin[]) => {},
+  setStatsMenuOpen: (val: boolean) => {},
+  setIsSearching: (val: boolean) => {},
 });
 
 export default generalCtx;

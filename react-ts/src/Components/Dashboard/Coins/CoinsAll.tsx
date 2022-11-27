@@ -1,6 +1,6 @@
 import React from 'react';
 import CoinItem from '../Coin/CoinItem';
-import { Coin } from '../../../Models/models';
+import { Coin } from '../../../Models/coinModel';
 import classes from './CoinsAll.module.scss';
 
 const CoinsAll = function ({ currentCoins }: any) {

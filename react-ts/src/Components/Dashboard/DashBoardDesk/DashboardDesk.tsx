@@ -3,7 +3,7 @@ import React, { useEffect, useState, useCallback, useContext } from 'react';
 import generalCtx from '../../../store/general-context';
 import fetchCtx from '../../../store/fetch-context';
 import { IconArrowR, IconArrowL } from '../../../Utilities/Icons/Icons';
-import { Coin } from '../../../Models/models';
+import { Coin } from '../../../Models/coinModel';
 import CoinsAll from '../Coins/CoinsAll';
 import Pagination from '../../UI/Pagination/Pagination';
 import LineChart from '../../UI/ChartComponents/LineChart';
@@ -18,7 +18,7 @@ const DashBoardDesk = function () {
   const [data, setData] = useState<any>([]);
   const [label, setLabel] = useState('');
 
-  const { setCoinsHandler, isSearching, filteredCoins, isLoading, coins } =
+  const { setCoins, isSearching, filteredCoins, isLoading, coins } =
     useContext(generalCtx);
   const { updateAllCoins, topCoins } = useContext(fetchCtx);
 
@@ -171,11 +171,7 @@ const DashBoardDesk = function () {
             <h3>Annual Change</h3>
             <div className='chart'>
               {topCoins.length !== 0 && (
-                <LineChart
-                  type={'line'}
-                  data={chartData}
-                  
-                />
+                <LineChart type={'line'} data={chartData} />
               )}
             </div>
           </div>
@@ -192,5 +188,4 @@ const DashBoardDesk = function () {
 export default DashBoardDesk;
 
 {
-  
 }

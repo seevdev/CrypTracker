@@ -6,7 +6,7 @@ import {
   TriangleUpIcon,
   TriangleDownIcon,
 } from '../../../Utilities/Icons/Icons';
-import { Coin } from '../../../Models/models';
+import { Coin } from '../../../Models/coinModel';
 import InfoMenu from '../Info/InfoMenu';
 import MoreInfo from '../Info/MoreInfo';
 import Button from '../../UI/Button/Button';

@@ -1,23 +1,22 @@
-import React, { useState, useContext, ChangeEvent, useEffect } from 'react';
+import React, { useState, useContext, useEffect, SyntheticEvent } from 'react';
 import generalCtx from '../../store/general-context';
 import Input from '../UI/Input';
 import './NavSearch.scss';
 
 const NavSearch = () => {
   const [inputValue, setInputValue] = useState('');
-  const { setSearchingHandler, coins, filteredCoinsChangeHandler } =
-    useContext(generalCtx);
+  const { setIsSearching, coins, setFilteredCoins } = useContext(generalCtx);
 
-  const searchHandler = (e: ChangeEvent) => {
+  const searchHandler = (e: SyntheticEvent) => {
     const target = e.target as HTMLInputElement;
     setInputValue((prev) => target.value);
   };
 
   useEffect(() => {
     if (inputValue.trim().length > 0) {
-      setSearchingHandler(true);
+      setIsSearching(true);
     } else {
-      setSearchingHandler(false);
+      setIsSearching(false);
     }
 
     const results = [
@@ -26,7 +25,7 @@ const NavSearch = () => {
       ),
     ];
 
-    filteredCoinsChangeHandler([...results]);
+    setFilteredCoins([...results]);
   }, [inputValue, coins]);
 
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Coin } from '../../../Models/models';
+import { Coin } from '../../../Models/coinModel';
 import CoinTop from '../CoinTop/CoinTop';
 import './CoinsTop.scss';
 

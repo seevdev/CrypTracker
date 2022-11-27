@@ -3,7 +3,7 @@ import generalCtx from '../../../store/general-context';
 import Button from '../../UI/Button/Button';
 import fetchCtx from '../../../store/fetch-context';
 import './InfoMenu.scss';
-import { Coin } from '../../../Models/models';
+import { Coin } from '../../../Models/coinModel';
 
 interface InfoMenuProps {
   id: string;

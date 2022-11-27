@@ -1,6 +1,5 @@
-import React from 'react';
 import { DivProps } from 'react-html-props';
-import { Coin } from '../../../Models/models';
+import { Coin } from '../../../Models/coinModel';
 import Modal from '../../UI/Modal/Modal';
 import './MoreInfo.scss';
 
