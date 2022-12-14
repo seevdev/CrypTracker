@@ -1,8 +1,8 @@
 // COLORS
-$baseTextColor: #fff;
-$base-color: #313039;
-$component-back-color: #0c0c10;
-$ditem-color: #222128;
+$textColor: #fff;
+$baseColor: #313039;
+$backColor: #0c0c10;
+$coinColor: #222128;
 
 // BORDER-RADIUS
 
@@ -15,44 +15,48 @@ $unit-s: 0.4rem;
 $unit-m: 0.8rem;
 $unit-l: 1.2rem;
 
+//Icon
+$i-width:24px;
+$i-height:24px;
+
 // THEME VARIABLES
-$themes: (
-  light: (
-    textColor: #000,
-    backColor: #0c0c1013,
-    baseColor: rgba(200, 204, 209, 0.82),
-    coinColor: #d6d5da,
-  ),
-  dark: (
-    textColor: #fff,
-    baseColor: #313039,
-    backColor: #0c0c10,
-    coinColor: #222128,
-  ),
-);
+// $themes: (
+//   light: (
+//     textColor: #000,
+//     backColor: #0c0c1013,
+//     baseColor: rgba(200, 204, 209, 0.82),
+//     coinColor: #d6d5da,
+//   ),
+//   dark: (
+//     textColor: #fff,
+//     baseColor: #313039,
+//     backColor: #0c0c10,
+//     coinColor: #222128,
+//   ),
+// );
 
-@mixin themify($themes) {
-  @each $theme, $map in $themes {
-    .theme-#{$theme} & {
-      $theme-map: () !global;
-      @each $key, $submap in $map {
-        $value: map-get(map-get($themes, $theme), '#{$key}');
-        $theme-map: map-merge(
-          $theme-map,
-          (
-            $key: $value,
-          )
-        ) !global;
-      }
-      @content;
-      $theme-map: null !global;
-    }
-  }
-}
+// @mixin themify($themes) {
+//   @each $theme, $map in $themes {
+//     .theme-#{$theme} & {
+//       $theme-map: () !global;
+//       @each $key, $submap in $map {
+//         $value: map-get(map-get($themes, $theme), '#{$key}');
+//         $theme-map: map-merge(
+//           $theme-map,
+//           (
+//             $key: $value,
+//           )
+//         ) !global;
+//       }
+//       @content;
+//       $theme-map: null !global;
+//     }
+//   }
+// }
 
-@function themed($key) {
-  @return map-get($theme-map, $key);
-}
+// @function themed($key) {
+//   @return map-get($theme-map, $key);
+// }
 
 // COMPLEX STYLES
 

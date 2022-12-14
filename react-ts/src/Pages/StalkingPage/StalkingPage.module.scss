@@ -1,0 +1,17 @@
+@import '/src/Utilities/Variables';
+
+.stalking-page {
+  @include themify($themes) {
+    background-color: themed('backColor');
+  }
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 15% min-content;
+  grid-template-rows: 10% 90%;
+  margin: 0 auto;
+  border: 1px solid #000;
+  padding: calc($unit-l * 4) calc($unit-l * 4) calc($unit-l * 4)
+    calc($unit-m * 4);
+  align-items: start;
+}

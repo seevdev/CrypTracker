@@ -1,4 +1,5 @@
-import { Coin, Data } from '../Models/coinModel';
+import { Coin } from '../Models/coinModel';
+import { Data } from '../Models/APIDataModel';
 
 class CoinsServices {
   dataFormatter = function (data: Data.RootObject[] | Data.RootObject): Coin[] {

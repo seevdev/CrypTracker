@@ -1,50 +1,56 @@
-import React from 'react';
 import { NavLink } from 'react-router-dom';
 import {
   DashboardIcon,
- 
   FavouriteIcon,
   SettingIcon,
   LogOutIcon,
 } from '../../Utilities/Icons/Icons';
 
-import './Sidemenu.scss';
+import classes from './Sidemenu.module.scss';
 
 const Sidemenu = (): JSX.Element => {
   return (
-    <menu className='menu'>
+    <menu className={classes['side-menu']}>
       <h1>CrypTracker</h1>
       <ul>
         <li>
           <div>
-            <div className='side-menu_icon-back'>{DashboardIcon}</div>
+            <div className={classes['side-menu--icon']}>{DashboardIcon}</div>
             <NavLink activeClassName='active-link' to='/dashboard'>
               Dashboard
             </NavLink>
           </div>
         </li>
-
         <li>
           <div>
-            <div className='side-menu_icon-back'>{FavouriteIcon}</div>
-            <NavLink to='/fav' activeClassName='active-link'>
-              May Favs
+            <div className={classes['side-menu--icon']}>{DashboardIcon}</div>
+            <NavLink activeClassName='active-link' to='/market'>
+              Market
             </NavLink>
           </div>
         </li>
 
-        {/* <li>
+        <li>
           <div>
-            <div className='side-menu_icon-back'>{SettingIcon}</div>
-            <a href='#'>Settings</a>
+            <div className={classes['side-menu--icon']}>{FavouriteIcon}</div>
+            <NavLink to='/stalking' activeClassName='active-link'>
+              Stalking
+            </NavLink>
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <div className={classes['side-menu--icon']}>{SettingIcon}</div>
+            <a href='#'>g</a>
           </div>
         </li>
         <li>
           <div>
-            <div className='side-menu_icon-back'>{LogOutIcon}</div>
+            <div className={classes['side-menu--icon']}>{LogOutIcon}</div>
             <a href='#'>Log out</a>
           </div>
-        </li> */}
+        </li>
       </ul>
     </menu>
   );

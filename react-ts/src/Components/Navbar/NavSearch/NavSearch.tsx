@@ -1,12 +1,11 @@
-import React, { useState, useContext, ChangeEvent, useEffect, SyntheticEvent } from 'react';
+import { useState, useContext, useEffect, SyntheticEvent } from 'react';
 import generalCtx from '../../../store/general-context';
 import Input from '../../UI/Input/Input';
-import './NavSearch.scss';
+import classes from './NavSearch.module.scss';
 
 const NavSearch = (): JSX.Element => {
   const [inputValue, setInputValue] = useState('');
-  const { setSearchingHandler, coins, filteredCoinsChangeHandler } =
-    useContext(generalCtx);
+  const { setIsSearching, coins, setFilteredCoins } = useContext(generalCtx);
 
   const searchHandler = (e: SyntheticEvent) => {
     const target = e.target as HTMLInputElement;
@@ -15,9 +14,9 @@ const NavSearch = (): JSX.Element => {
 
   useEffect(() => {
     if (inputValue.trim().length > 0) {
-      setSearchingHandler(true);
+      setIsSearching(true);
     } else {
-      setSearchingHandler(false);
+      setIsSearching(false);
     }
 
     const results = [
@@ -26,11 +25,11 @@ const NavSearch = (): JSX.Element => {
       ),
     ];
 
-    filteredCoinsChangeHandler([...results]);
+    setFilteredCoins([...results]);
   }, [inputValue, coins]);
 
   return (
-    <div className='nav-search'>
+    <div className={classes['nav-search']}>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         fill='none'

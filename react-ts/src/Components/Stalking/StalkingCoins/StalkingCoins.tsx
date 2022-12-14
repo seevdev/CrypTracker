@@ -1,0 +1,40 @@
+import React, { useContext } from 'react';
+
+import Chart from 'chart.js/auto';
+import { CategoryScale } from 'chart.js';
+import StalkingCoin from '../StalkingCoin/StalkingCoin';
+import generalCtx from '../../../store/general-context';
+
+import './StalkingCoins.module.scss';
+
+Chart.register(CategoryScale);
+
+const StalkingCoins = function (): JSX.Element {
+  const { favCoins } = useContext(generalCtx);
+
+  return (
+    <div className='FavCoins'>
+      <h2>Favourite Coins</h2>
+      <div className='coins-container'>
+        <div className='coins'>
+          {favCoins.map((favCoin, index) => {
+            console.log(favCoin.id);
+            return (
+              <StalkingCoin
+                name={favCoin.name}
+                image={favCoin.image}
+                priceChangePercentageWeekly={favCoin.priceChange7dPercent}
+                id={favCoin.id}
+                key={favCoin.id}
+                number={index}
+                symbol={favCoin.symbol}
+              />
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default StalkingCoins;

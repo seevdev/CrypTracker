@@ -1,5 +1,5 @@
-import React, { useContext, useState } from 'react';
-import themeContext from '../../store/theme-context';
+
+
 
 import classes from './Pagination.module.scss';
 

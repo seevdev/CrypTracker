@@ -1,5 +1,4 @@
-import React from 'react';
-import './NavBarGreeting.scss';
+import classes from './NavBarGreeting.module.scss';
 
 const NavBarGreeting = (): JSX.Element => {
   const date = new Date();
@@ -14,7 +13,7 @@ const NavBarGreeting = (): JSX.Element => {
   }
 
   return (
-    <div className='greeting'>
+    <div className={classes.greeting}>
       <img src={'https://randomuser.me/api/portraits/men/79.jpg'} />
       <h2>{`${greeting} Sam`}</h2>
     </div>

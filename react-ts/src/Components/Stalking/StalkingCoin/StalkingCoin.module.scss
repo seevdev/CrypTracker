@@ -1,0 +1,31 @@
+@import '/src/Utilities/Variables';
+.stalking-coin {
+  background-color: $coinColor;
+  color: $textColor;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $unit-l;
+  font-size: 18px;
+  padding: calc($unit-l * 2);
+  border-bottom: 1px solid rgb(36, 36, 36);
+  
+  &:last-child {
+    border: none;
+  }
+  img {
+    width: 32px;
+    height: 32px;
+  }
+  .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: calc($unit-m * 3);
+  }
+  .stalking-coin--graph {
+    margin-right: calc($unit-l * 8);
+    width: 32px;
+    height: 100%;
+  }
+}

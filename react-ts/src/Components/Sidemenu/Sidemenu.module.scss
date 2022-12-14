@@ -1,0 +1,40 @@
+@import '/src/Utilities/Variables';
+
+.side-menu {
+  display: flex;
+  flex-flow: column;
+  grid-row: 1 / span 2;
+  gap: calc($unit-l * 7);
+  color: $textColor;
+
+  ul {
+    display: flex;
+    flex-flow: column;
+    gap: calc($unit-l * 2.5);
+    list-style-type: none;
+    margin-left: calc($unit-l * 2);
+  }
+  li {
+    & > div {
+      display: flex;
+      align-items: center;
+      gap: calc($unit-l * 2);
+    }
+
+    a {
+      font-size: calc($unit-s * 4);
+      color: $textColor;
+      text-decoration: none;
+    }
+  }
+
+  .side-menu--icon {
+    display: flex;
+    @include flex-center;
+    width: calc($i-width * 2);
+    height: calc($i-height * 2);
+    color: $textColor;
+    background-color: $baseColor;
+    border-radius: 100%;
+  }
+}

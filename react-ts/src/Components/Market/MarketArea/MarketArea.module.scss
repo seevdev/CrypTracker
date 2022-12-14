@@ -1,0 +1,103 @@
+@import '/src/Utilities/Variables';
+
+.market-area {
+  display: grid;
+  grid-template-rows: max-content 1fr;
+  min-width: 80vw;
+  height: 85vh;
+  color: $textColor;
+  background-color: $baseColor;
+  border-radius: $bradius-l;
+  margin-top: -1.2rem;
+
+  .items-container {
+    display: grid;
+    grid-template-columns: 5% 55% 5% 1fr;
+    grid-template-rows: min-content min-content 10%;
+    width: 100%;
+    height: 100%;
+    column-gap: 1.2rem;
+  }
+  .column-one {
+    grid-column: 1;
+  }
+  .column-two {
+    grid-column: 2;
+  }
+  .column-three {
+    grid-column: 3;
+  }
+  .column-four {
+    grid-column: 4;
+  }
+  .row-one {
+    grid-row: 1;
+  }
+  .row-two {
+    grid-row: 2;
+  }
+  .row-three {
+    grid-row: 3;
+  }
+  .row-span-2 {
+    grid-row: 1/2 span;
+  }
+
+  .chart-container {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    height: 300px;
+    gap: 2.4rem;
+    justify-self: start;
+    align-self: start;
+  }
+  .chart {
+    width: 90%;
+  }
+  .coins-top {
+    justify-self: start;
+    width: 100%;
+    align-self: end;
+  }
+  h2 {
+    padding: 2.4rem 3.2rem;
+    color: inherit;
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+  .gap {
+    gap: 1.2rem;
+  }
+
+  .loading {
+    display: flex;
+    width: 50%;
+    gap: 2.4rem;
+    font-size: 2.4rem;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    img {
+      width: 32px;
+      height: 32px;
+    }
+  }
+  .pagination-box {
+    align-self: center;
+    justify-self: center;
+  }
+  .arrow-box-right {
+    align-self: center;
+    justify-self: start;
+    margin-left: 1.2rem;
+  }
+  .arrow-box-left {
+    align-self: center;
+    justify-self: end;
+    margin-right: 1.2rem;
+  }
+}

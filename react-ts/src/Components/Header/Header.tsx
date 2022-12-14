@@ -1,8 +1,8 @@
-import React from 'react';
-import NavBar from '../Navbar/NavBar/NavBar';
-import './Header.scss';
 
-interface HeaderProps {
+import NavBar from '../Navbar/NavBar/NavBar';
+
+
+export interface HeaderProps {
   withSearchBar: boolean;
   withRefreshBtn: boolean;
 }
