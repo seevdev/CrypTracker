@@ -3,13 +3,13 @@ import classes from './NavBarGreeting.module.scss';
 const NavBarGreeting = (): JSX.Element => {
   const date = new Date();
   const hours = date.getHours();
-  let greeting = 'Hi,';
+  let greeting = 'Hi';
   if (hours > 4 && hours < 12) {
-    greeting = 'Morning,';
+    greeting = 'Morning';
   } else if (hours > 17 && hours <= 23) {
-    greeting = 'Evening,';
+    greeting = 'Evening';
   } else if (hours > 0 && hours < 4) {
-    greeting = 'Night,';
+    greeting = 'Night';
   }
 
   return (

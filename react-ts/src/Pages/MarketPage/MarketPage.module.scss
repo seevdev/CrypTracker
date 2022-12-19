@@ -1,9 +1,7 @@
 @import '/src/Utilities/Variables';
 
 .market-area {
-  @include themify($themes) {
-    background-color: themed('backColor');
-  }
+  background-color: $backColor;
   // width: 100vw;
   height: 100vh;
   display: grid;

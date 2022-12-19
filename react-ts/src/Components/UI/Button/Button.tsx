@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { ButtonProps } from 'react-html-props';
 import './Button.scss';
 

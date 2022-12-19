@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { ArrowDown, ArrowUp } from '../../Utilities/Icons/Icons';
 import classes from './TopCoin.module.scss';
 
@@ -14,23 +14,23 @@ const TopCoin = function (props: TopCoinProps): JSX.Element {
   const increasing = props.changePercent > 0 ? true : false;
   return (
     <div className={classes['top-coin']}>
-      <div className='flex-row column-one'>
+      <div className={`${classes['flex-row']} ${classes['column-one']}`}>
         <span>{props.number}</span>
         <span>
           <img src={props.image} />
         </span>
 
-        <div className='flex-column name-box'>
+        <div className={`${classes['flex-column']} ${classes['name-box']}`}>
           <span>{props.name}</span>
-          <span className='symbol'>{props.symbol}</span>
+          <span className={classes.symbol}>{props.symbol}</span>
         </div>
       </div>
       <span>{props.price}</span>
-      <div className='flex-column'>
-        <span className='coin-top--graph'>
+      <div className={classes['flex-column']}>
+        <span className={classes['coin-top--graph']}>
           {increasing ? ArrowUp : ArrowDown}
         </span>
-        <span className='percent'>{`${props.changePercent.toFixed(2)}%`}</span>
+        <span>{`${props.changePercent.toFixed(2)}%`}</span>
       </div>
     </div>
   );

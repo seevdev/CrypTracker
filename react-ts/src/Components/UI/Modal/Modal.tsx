@@ -1,7 +1,7 @@
 import React, { Fragment, SyntheticEvent } from 'react';
 import reactDom from 'react-dom';
 
-import './Modal.scss';
+import classes from './Modal.module.scss';
 
 interface BackdropProps {
   onClick: () => {};
@@ -11,18 +11,18 @@ interface ModalOverlayProps {
 }
 
 interface Modal {
-  onClick: SyntheticEvent
+  onClick: SyntheticEvent;
   children: React.ReactNode;
 }
 
 const Backdrop = (props: BackdropProps): JSX.Element => {
-  return <div className='backdrop' onClick={props.onClick} />;
+  return <div className={classes.backdrop} onClick={props.onClick} />;
 };
 
 const ModalOverlay = (props: ModalOverlayProps): JSX.Element => {
   return (
-    <div className='modal'>
-      <div className='content'>{props.children}</div>
+    <div className={classes.modal}>
+      <div className={classes.content}>{props.children}</div>
     </div>
   );
 };

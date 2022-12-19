@@ -7,7 +7,7 @@ const MarketPage = (): JSX.Element => {
   return (
     <div className={classes['market-area']}>
       <Sidemenu />
-      <Header withSearchBar={true} withRefreshBtn={true} />
+      <Header withSearchBar={true} withRefreshBtn={true} pageTitle={'Market'} />
       <MarketArea />
     </div>
   );

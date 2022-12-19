@@ -36,7 +36,7 @@ const NavSearch = (): JSX.Element => {
         viewBox='0 0 24 24'
         strokeWidth={1.5}
         stroke='currentColor'
-        className='icon'
+        className={classes['search-icon']}
       >
         <path
           strokeLinecap='round'

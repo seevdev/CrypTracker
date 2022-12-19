@@ -8,12 +8,12 @@ function App() {
   return (
     <div className={classes.app}>
       <Route exact path='/'>
-        <Redirect to='/dashboard' />
+        <Redirect to='/market' />
       </Route>
-      <Route path='/dashboard'>
+      <Route path='/market'>
         <MarketPage />
       </Route>
-      <Route path='/fav'>
+      <Route path='/stalking'>
         <StalkingPage />
       </Route>
     </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { InputProps } from 'react-html-props';
 import classes from './Input.module.scss';
 

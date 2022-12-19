@@ -1,18 +1,21 @@
-
 import NavBar from '../Navbar/NavBar/NavBar';
-
 
 export interface HeaderProps {
   withSearchBar: boolean;
   withRefreshBtn: boolean;
+  pageTitle: string;
 }
-const Header = (props: HeaderProps): JSX.Element => {
+const Header = ({
+  withRefreshBtn,
+  withSearchBar,
+  pageTitle,
+}: HeaderProps): JSX.Element => {
   return (
     <header>
-      
       <NavBar
-        withSearchBar={props.withSearchBar}
-        withRefreshBtn={props.withRefreshBtn}
+        withSearchBar={withSearchBar}
+        withRefreshBtn={withRefreshBtn}
+        pageTitle={pageTitle}
       />
     </header>
   );

@@ -4,13 +4,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
- 
 
   .search-container {
-    display: flex;
-    flex-direction: row;
+    display: flex;  
     gap: calc($unit-l * 2);
-    @include flex-center;
+   align-items: baseline;
   }
   .icons {
     display: flex;
@@ -21,31 +19,22 @@
     width: 30px;
   }
   .icon {
-    width: 24px;
-    height: 24px;
+    width: $i-width;
+    height: $i-height;
     cursor: pointer;
   }
 
   .nav-btn {
     display: flex;
+    width: calc($i-width * 2);
+    height: calc($i-height * 2);
     @include flex-center;
-    background: none;
-    border: none;
+    background-color: $baseColor;
+    border-radius: 100%;
   }
-}
-.active-link{
-  position: relative;
-  display: flex;
-  align-items: center;
- 
-}
-.active-link::before {
-  display: block;
-  content: '';
-  position: absolute;
-  width: 5px;
-  height: 30px;
-  background-color: #0ca678;
-  left: -100px;
-  
+  .page-title {
+    font-size: 3.2rem;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+  }
 }

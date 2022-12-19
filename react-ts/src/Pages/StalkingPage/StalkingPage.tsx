@@ -10,7 +10,11 @@ const StalkingPage = (): JSX.Element => {
     <GeneralCtxProvider>
       <div className={classes['stalking-page']}>
         <Sidemenu />
-        <Header withSearchBar={false} withRefreshBtn={false} />
+        <Header
+          withSearchBar={false}
+          withRefreshBtn={false}
+          pageTitle={'Stalking'}
+        />
         <StalkingCoins />
       </div>
     </GeneralCtxProvider>

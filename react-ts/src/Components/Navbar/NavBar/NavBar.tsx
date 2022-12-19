@@ -1,6 +1,5 @@
 import { useContext } from 'react';
-import { IconTheme, RefreshIcon } from '../../../Utilities/Icons/Icons';
-import NavBarGreeting from '../NavBarGreeting/NavBarGreeing';
+import { RefreshIcon } from '../../../Utilities/Icons/Icons';
 import NavSearch from '../NavSearch/NavSearch';
 import Button from '../../UI/Button/Button';
 import generalCtx from '../../../store/general-context';
@@ -9,30 +8,30 @@ import classes from './NavBar.module.scss';
 interface NavBarProps {
   withSearchBar: boolean;
   withRefreshBtn: boolean;
+  pageTitle: string;
 }
 
-const NavBar = (props: NavBarProps): JSX.Element => {
+const NavBar = ({
+  withRefreshBtn,
+  withSearchBar,
+  pageTitle,
+}: NavBarProps): JSX.Element => {
   const { updateCoins } = useContext(generalCtx);
 
   return (
     <nav className={classes['nav-bar']}>
-      <NavBarGreeting />
+      <div className={classes['page-title']}>{pageTitle}</div>
       <div className={classes['search-container']}>
-        {props.withSearchBar && <NavSearch />}
+        {withSearchBar && <NavSearch />}
         <div className={classes.icon}>
-          <div>
-            <button className={classes['nav-btn']}>
-              <div>{IconTheme}</div>
-            </button>
-          </div>
-          {props.withRefreshBtn && (
+          {withRefreshBtn && (
             <div>
               <Button
                 onClick={() => {
                   updateCoins();
                 }}
               >
-                <div>{RefreshIcon}</div>
+                <div className={classes['nav-btn']}>{RefreshIcon}</div>
               </Button>
             </div>
           )}

@@ -4,8 +4,9 @@ import { IconArrowR, IconArrowL } from '../../../Utilities/Icons/Icons';
 import { Coin } from '../../../Models/coinModel';
 import CoinsAll from '../../Coins/CoinsAll';
 import Pagination from '../../UI/Pagination/Pagination';
-import LineChart from '../../UI/ChartComponents/LineChart';
+
 import CoinsTop from '../../TopCoins/TopCoins';
+
 import classes from './MarketArea.module.scss';
 
 const MarketArea = function () {
@@ -80,45 +81,8 @@ const MarketArea = function () {
     }
   }, [isSearching, filteredCoins, coins]);
 
-  const chartData = {
-    labels: [
-      '1 year',
-      '200 days',
-      '60 days',
-      'Month',
-      '14 days',
-      'Week',
-      'Today',
-      'Last hour',
-    ],
-    datasets: [
-      {
-        label: `${label} Currency Dynamics`,
-        data: data,
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)',
-        ],
-        borderColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)',
-        ],
-        borderWidth: 1,
-      },
-    ],
-  };
-
   return (
     <div className={classes['market-area']}>
-      <h2>Dashboard</h2>
       {isLoading && (
         <div className={classes.loading}>
           <img src='https://media.tenor.com/On7kvXhzml4AAAAi/loading-gif.gif' />
@@ -127,13 +91,20 @@ const MarketArea = function () {
       )}
       {!isLoading && (
         <div className={classes['items-container']}>
-          <div className={`${classes['column-2']} ${classes['row-span-2']}`}>
-            {!isLoading && <CoinsAll currentCoins={currentCoins} />}
+          <div
+            className={`${classes['column-two']} ${classes['row-span-2']} ${classes['coins-container']}`}
+          >
+            {!isLoading && (
+              <div>
+                <span className='box-title'>Coins</span>
+                <CoinsAll currentCoins={currentCoins} />
+              </div>
+            )}
           </div>
 
           {display && (
             <div
-              className={`${classes['column-one']} ${classes['row-span-2']} ${classes['arrow-box-left ']}`}
+              className={`${classes['column-one']} ${classes['row-span-2']} ${classes['arrow-box-left']}`}
               onClick={() => {
                 if (currentPage > 1) {
                   setCurrentPage((prevPage) => prevPage - 1);
@@ -146,7 +117,7 @@ const MarketArea = function () {
 
           {display && (
             <div
-              className={`${classes['column-three']} ${classes['row-span-2']} ${classes['arrow-box-right ']}`}
+              className={`${classes['column-three']} ${classes['row-span-2']} ${classes['arrow-box-right']}`}
               onClick={() => {
                 if (currentPage < Math.ceil(coins.length / coinsPerPage)) {
                   setCurrentPage((prevPage) => prevPage + 1);
@@ -173,20 +144,18 @@ const MarketArea = function () {
           )}
 
           <div
-            className={`${classes['column-four']} ${classes['row-one']} ${classes['chart-container ']}`}
+            className={`${classes['column-four']} ${classes['row-span-2']} ${classes['stats-container']}`}
           >
-            <h3>Annual Change</h3>
-            <div className={classes.chart}>
-              {topCoins.length !== 0 && (
-                <LineChart type={'line'} data={chartData} />
-              )}
+            <div
+              className={`${classes['column-four']} ${classes['row-two']} ${classes['coins-top']}`}
+            >
+              <div>
+                <span className='box-title'>Top Coins</span>
+                <CoinsTop topCoins={topCoins} />
+              </div>
             </div>
-          </div>
-
-          <div
-            className={`${classes['column-four']} ${classes['row-two']} ${classes['coins-top ']}`}
-          >
-            <CoinsTop topCoins={topCoins} />
+            {/* <h3>Annual Change</h3> */}
+            <div className={classes.chart}></div>
           </div>
         </div>
       )}

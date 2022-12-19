@@ -1,9 +1,7 @@
 @import '/src/Utilities/Variables';
 
 button {
-  @include themify($themes) {
-    color: themed('textColor');
-  }
+  color: $textColor;
   border: none;
   background-color: transparent;
   cursor: pointer;

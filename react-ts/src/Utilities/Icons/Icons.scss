@@ -5,9 +5,7 @@
   height: 24px; 
 
   &.icon-arrow {
-    @include themify($themes) {
-      stroke: themed('textColor');
-    }
+   color: $textColor;
     
     cursor: pointer;
   }
@@ -18,10 +16,8 @@
 }
 
 .nav_icon-back {
-  @include themify($themes) {
-    background-color: themed('baseColor');
-    color: themed('textColor');
-  }
+background-color: $baseColor;
+color: $textColor;
   width: 48px;
   height: 48px;
   border-radius: 100%;

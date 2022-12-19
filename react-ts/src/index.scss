@@ -17,20 +17,18 @@ html {
 }
 
 body {
-  @include themify($themes) {
-    color: themed('textColor');
-    background-color: themed('baseColor');
-  }
+  background-color: $baseColor;
+  color: $textColor;
   font-family: 'Open Sans', sans-serif;
   font-size: 1.6rem;
   line-height: 1;
-  h1{
+  h1 {
     letter-spacing: 1.25px;
   }
-  h2{
-    letter-spacing: 1.10px;
+  h2 {
+    letter-spacing: 1.1px;
   }
-  h3{
-    letter-spacing: 0.6px; 
+  h3 {
+    letter-spacing: 0.6px;
   }
 }

@@ -4,6 +4,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import {
   TriangleUpIcon,
   TriangleDownIcon,
+  ShopIcon,
 } from '../../Utilities/Icons/Icons';
 import { Coin } from '../../Models/coinModel';
 import Button from '../UI/Button/Button';
@@ -40,15 +41,6 @@ function CoinItem(props: Coin) {
         </div>
       </div>
 
-      <Button>
-        <span
-          onClick={() => {
-            coinStatsHandler(props);
-          }}
-        >
-          {'+'}
-        </span>
-      </Button>
     </div>
   );
 }

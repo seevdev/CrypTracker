@@ -1,7 +1,6 @@
-import React from 'react';
 import { Coin } from '../../Models/coinModel';
 import CoinTop from '../TopCoin/TopCoin';
-import './CoinsTop.scss';
+import classes from './TopCoins.module.scss';
 
 interface CoinsTop {
   topCoins: Coin[];
@@ -9,11 +8,11 @@ interface CoinsTop {
 
 function CoinsTop(props: CoinsTop): JSX.Element {
   return (
-    <div className='CoinsTop'>
-      <h3>Top Coins</h3>
-      <div className='topfive-container'>
-        <div className='topcoins-titles'>
-          <span className='titles-column-one'>Name</span>
+    <div className={classes['top-coins']}>
+      {/* <h3>Top Coins</h3> */}
+      <div className={classes['topthree-container']}>
+        <div className={classes['top-coins--titles']}>
+          <span className={classes['titles--column-one']}>Name</span>
           <span>Price</span>
           <span>Weekly</span>
         </div>

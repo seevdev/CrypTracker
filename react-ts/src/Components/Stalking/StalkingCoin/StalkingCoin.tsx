@@ -1,7 +1,8 @@
 import { useContext } from 'react';
 import generalCtx from '../../../store/general-context';
 import Button from '../../UI/Button/Button';
-import classes from './StalkingCoins.module.scss';
+import { Coin } from '../../../Models/coinModel';
+import classes from './StalkingCoin.module.scss';
 
 interface StalkingCoinProps {
   name: string;
@@ -16,7 +17,7 @@ const StalkingCoin = function (props: StalkingCoinProps): JSX.Element {
 
   const stalkingCoinDeleteHandler = () => {
     const filteredFavCoins = [
-      ...favCoins.filter((favCoin) => favCoin.id !== props.id),
+      ...favCoins.filter((favCoin: Coin) => favCoin.id !== props.id),
     ];
     setFavCoins(filteredFavCoins);
   };

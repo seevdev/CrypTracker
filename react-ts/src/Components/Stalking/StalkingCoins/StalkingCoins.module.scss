@@ -4,10 +4,8 @@
   height: 85vh;
   margin-top: -1.2rem;
   min-width: 80vw;
-  @include themify($themes) {
-    background-color: themed('baseColor');
-    color: themed('textColor');
-  }
+  background-color: $baseColor;
+  color: $textColor;
   border-radius: $bradius-l;
   padding: calc($unit-m * 4);
 
